@@ -3,7 +3,7 @@
 ## **_Installing and Running the Full-Stack Application_**
 
 ```cmd
-git clone https://github.com/marionthefourth/Port-Life.git
+git clone https://github.com/marionthefourth/port-life-react.git
 yarn
 yarn start
 ```
