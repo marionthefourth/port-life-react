@@ -1,28 +1,30 @@
-import React, { useState } from "react";
-import { Viewer } from "resium";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { Route, Routes, } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import { Dashboard } from './Dashboard';
 import Login from './Login';
+import { useCookies } from 'react-cookie';
 
 function App() {
-  const [token, setToken] = useState();
+  const [cookies, setCookie, removeCookie] = useCookies(['userAuthorized']);
 
-  if(!token) {
-    return <Login setToken={setToken} />
+  if(!cookies.userAuthorized || cookies.userAuthorized === undefined || cookies.userAuthorized === false) {
+    return (
+      <CookiesProvider>
+        <Login />
+      </CookiesProvider>
+    )
   }
 
   return (
-    <div className="wrapper">
-      <h1>Application</h1>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/viewer" element={<Viewer full />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <>
+      <CookiesProvider>
+          <Routes>
+            <Route path="/" element={<Dashboard />}></Route>
+          </Routes>
+      </CookiesProvider>
+    </>
   );
-
 }
 
 export default App;
