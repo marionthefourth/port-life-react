@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes, } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
-import { Dashboard } from './Dashboard';
-import Login from './Login';
+import { Dashboard } from '../dashboard/Dashboard';
+import Login from '../login/Login';
 import { useCookies } from 'react-cookie';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['userAuthorized']);
-
+  /*
   if(!cookies.userAuthorized || cookies.userAuthorized === undefined || cookies.userAuthorized === false) {
     return (
       <CookiesProvider>
@@ -15,6 +15,7 @@ function App() {
       </CookiesProvider>
     )
   }
+  */
 
   return (
     <>
