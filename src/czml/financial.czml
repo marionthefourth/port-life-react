@@ -1,0 +1,136 @@
+[
+  {
+    "id": "document",
+    "version": "1.0"
+  },
+  {
+    "id": "881db682-6c18-4cf3-8a4f-8314fe37486f",
+    "name": "Border",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          117.95468420109171,
+          24.62660021404865,
+          65.54568526082649,
+          117.9551297539007,
+          24.563770534231587,
+          24.64274681302736,
+          118.05576897438378,
+          24.558485462406264,
+          9.955555177748828,
+          118.05399788022466,
+          24.623236656574065,
+          21.10531898632076
+        ]
+      },
+      "holes": [],
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgbaf": [
+              0.4980392156862745,
+              1,
+              0.8313725490196079,
+              0.3
+            ]
+          }
+        }
+      },
+      "outline": true,
+      "outlineColor": {
+        "rgbaf": [
+          0.4980392156862745,
+          1,
+          0.8313725490196079,
+          1
+        ]
+      },
+      "outlineWidth": 2
+    }
+  },
+  {
+    "id": "191ef1b2-2ed4-4625-b5a8-d59f65df3da5",
+    "name": "Date",
+    "position": {
+      "cartographicDegrees": [
+        117.98763273251146,
+        24.61632154886943,
+        0
+      ]
+    },
+    "label": {
+      "text": "Date: 07/09/22",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "758c944f-3278-4f5c-b141-ec88263f2e63",
+    "name": "Ship Type",
+    "position": {
+      "cartographicDegrees": [
+        117.98763273251146,
+        24.606372580164443,
+        0
+      ]
+    },
+    "label": {
+      "text": "Ship Type: Container Ship",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "93052f41-cf8d-4c9a-9ea1-a94acd097ad9",
+    "name": "TEU Capacity",
+    "position": {
+      "cartographicDegrees": [
+        117.98763273251146,
+        24.595493179293552,
+        0
+      ]
+    },
+    "label": {
+      "text": "TEU Capacity: 1028",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "e58a99af-5980-4907-9aab-5635c0771181",
+    "name": "Value Per TEU",
+    "position": {
+      "cartographicDegrees": [
+        117.98763273251146,
+        24.584147925630607,
+        0
+      ]
+    },
+    "label": {
+      "text": "TEU Value: $500",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "68f83064-84e4-498f-8353-2a3409178f53",
+    "name": "Total Revenue",
+    "position": {
+      "cartographicDegrees": [
+        117.98763273251146,
+        24.572348143097578,
+        0
+      ]
+    },
+    "label": {
+      "text": "Revenue: $514,000",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  }
+]

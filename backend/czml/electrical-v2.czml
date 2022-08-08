@@ -1,0 +1,576 @@
+[
+  {
+    "id": "document",
+    "version": "1.0"
+  },
+  {
+    "id": "01d62611-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.036261,
+        24.44164,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 3",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62612-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.026899,
+        24.442119,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 1",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62613-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.028445,
+        24.442091,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 1",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62614-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.030053,
+        24.441957,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62615-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.030362,
+        24.441963,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62616-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.031477,
+        24.44191,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62617-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.031933,
+        24.441843,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62618-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.032402,
+        24.441804,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62619-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.032685,
+        24.441834,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "01d62620-7bfe-43f6-92aa-1effe2ba8976",
+    "position": {
+      "cartographicDegrees": [
+        118.03304,
+        24.441817,
+        0
+      ]
+    },
+    "label": {
+      "text": "Berth 2",
+      "style": "FILL_AND_OUTLINE",
+      "showBackground": true,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "eyeOffset": {
+        "cartesian": [
+          12,
+          12,
+          12
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.18828124999999996,
+          1,
+          0,
+          1
+        ]
+      },
+      "outlineColor": {
+        "rgbaf": [
+          0.045052083333333215,
+          0,
+          1,
+          1
+        ]
+      },
+      "outlineWidth": "5",
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          10000,
+          1,
+          50000,
+          0
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  }
+]

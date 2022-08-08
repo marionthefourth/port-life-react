@@ -1,5 +1,6 @@
 import { createDocumentHeader, createGrand, createParent, ElectricalGridCZMLParentKeys, FinancialCZMLKeys, CZMLKeys, AirQualityCZMLParentKeys, AirQualityCZMLKeys, AirQualityMetricKeys, createChild } from "./types";
 
+const Papa = require('papaparse');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 
@@ -28,7 +29,8 @@ const root = "backend/czml"
 const files = {
     "Financial Data":   `${root}/financial.czml`,
     "Air Quality Data": `${root}/air_quality.czml`,
-    "Electrical Grid":  `${root}/electrical_grid.czml`
+    // "Electrical Grid":  `${root}/electrical_grid.czml`,
+    "Electrical Data":  `${root}/electrical.czml`
 }
 
 function getCZMLFile(fileName: string) {
@@ -46,11 +48,57 @@ function getAllCZMLFiles() {
     return Promise.all(promises);
 }
 
-function modifyFinancialItem(item) {
+function dynamicImport(item, id) {
+    var obj;
+    if (id === 1) {
+        obj = {
+            "PM2.5": item["pm25"],
+            "PM10": item["pm10"],
+            "CO": item["co"],
+            "SO2": item["so2"],
+            "NO2": item["no2"],
+            "O3": item["o3"],
+            "Date": item["date"],
+        }
+    } else {
+        obj = {
+            "Date": item["Day of Arrival"],
+            "Vessel Type": item["Vessel Type - Detailed"],
+            "TEU": item["Capacity - Teu"],
+            "Value Per TEU": item["$ Value"],
+            "Total Revenue": item["Revenue per Ship"]
+        }
+    }
     
+    return obj;
 }
 
-export function createCZML(date) {
+export function loadCSV() {
+    const file_node = fs.createReadStream('../csvs/aq.csv');
+    var aqData = {}
+    var marineData = {};
+
+    Papa.parse(file_node, {
+        header: true,
+        dynamicTyping: true,
+        complete: function (results_node) {
+            const promises = [];
+            console.log("---------------")
+            console.log("AQ File")
+            for (let i = 0; i < results_node.data.length; ++i) {
+                //console.log("In the read loop: " + results_node.data[i]);
+                promises.push(dynamicImport(results_node.data[i], 1));
+                // promises.push(import_item(results_node.data[i]));
+            }
+
+            Promise.all(promises).then((results) => {
+                console.log("All done", results);
+            })
+        }
+    });
+}
+
+export function createCZML(date: string, aqData, marineData) {
     
     getAllCZMLFiles().then(function(czmlArray) {
         // console.log(czmlArray[0].toJSON());
@@ -83,13 +131,20 @@ export function createCZML(date) {
                 const item = czml[z];
 
                 if (item.label) {
-                    // item.label.scale = "0.5";
-                    // item.label.horizontalOrigin = "LEFT";
+                    item.label.scale = "0.5";
+                    item.label.horizontalOrigin = "RIGHT";
                     item.label.showBackground = true;
-                    // item.label.verticalOrigin = "CENTER";
+                    item.label.verticalOrigin = "CENTER";
                 }
 
                 switch (name as CZMLKeys) {
+                    case "Electrical":
+                        if (item.name) {
+                            czmlKeys[name][item.name] = item.id
+                        }
+
+                        item["parent"] = category.id;
+                        break;
                     case "Financial":
 
                         if (item.name) {
@@ -187,7 +242,7 @@ export function createCZML(date) {
                         break;
                     case "Electrical Grid":
                         if (item.name) {
-                            item["parent"] = category.id;
+                            // item["parent"] = category.id;
                             if (item.parent === czmlKeys[name].id) {
                                 // One of the Parents, not Children
                                 czmlKeys[name][item.name] = {
