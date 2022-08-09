@@ -4,48 +4,66 @@ const Papa = require('papaparse');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 
+const czmlRoot = "backend/czml"
+const csvRoot = "backend/csvs"
 
-function wow() {
-    /*
-    import express from 'express';
-
-
-    const app = express();
-    const port = 3000;
-    
-    app.get('/', (req, res) => {
-      res.send('Hello World!');
-    });
-    
-    app.listen(port, () => {
-        console.log("🚀 Server ready at: " + port);
-    
-    });
-    */
+const czmlFiles = {
+    "Financial Data":       `${czmlRoot}/financial.czml`,
+    "Air Quality Data":     `${czmlRoot}/air_quality.czml`,
+    // "Electrical Grid":   `${root}/electrical_grid.czml`,
+    "Electrical Data":      `${czmlRoot}/electrical.czml`
 }
 
-const root = "backend/czml"
-
-const files = {
-    "Financial Data":   `${root}/financial.czml`,
-    "Air Quality Data": `${root}/air_quality.czml`,
-    // "Electrical Grid":  `${root}/electrical_grid.czml`,
-    "Electrical Data":  `${root}/electrical.czml`
+const airQualityCSVFiles = {
+    "Xiamen":   `${csvRoot}/xiamen_aq.csv`,
+    "Hongwen":  `${csvRoot}/hongwen_aq.csv`,
+    "Gulangya": `${csvRoot}/gulangya_aq.csv`,
 }
 
-function getCZMLFile(fileName: string) {
+const marineTrafficCSVFiles = {
+    "Marine Traffic": `${csvRoot}/marine_traffic.csv`
+}
+
+function getFile(fileName: string) {
     return fs.readFileAsync(fileName);
 }
 
 function getAllCZMLFiles() {
     var promises = [];
 
-    for (const key in files) {
-        promises.push(getCZMLFile(files[key]));
+    for (const key in czmlFiles) {
+        promises.push(getFile(czmlFiles[key]));
     }
 
     // return promise that is resolved when all .czml files are done loading
     return Promise.all(promises);
+}
+
+function getAllCSVFiles() {
+    const files = []
+
+    // Reading file
+    let readFile =(filename)=>{
+        return new Promise(function(resolve, reject){
+            fs.readFile(filename, 'utf8', function(err, data){
+                if(err){
+                    reject(err)
+                }else{
+                    resolve(data)
+                }
+            });
+        });
+    }
+
+    for (const key in airQualityCSVFiles) {
+        files.push(readFile(airQualityCSVFiles[key]));
+    }
+
+    for (const key in marineTrafficCSVFiles) {
+        files.push(readFile(marineTrafficCSVFiles[key]));
+    }
+
+    return Promise.all(files);
 }
 
 function dynamicImport(item, id) {
@@ -58,7 +76,6 @@ function dynamicImport(item, id) {
             "SO2": item["so2"],
             "NO2": item["no2"],
             "O3": item["o3"],
-            "Date": item["date"],
         }
     } else {
         obj = {
@@ -87,6 +104,9 @@ export function loadCSV() {
             console.log("AQ File")
             for (let i = 0; i < results_node.data.length; ++i) {
                 //console.log("In the read loop: " + results_node.data[i]);
+                console.log
+                const item = results_node.data[i]
+                aqData[item['date']] = dynamicImport(item, 1);
                 promises.push(dynamicImport(results_node.data[i], 1));
                 // promises.push(import_item(results_node.data[i]));
             }
@@ -98,7 +118,91 @@ export function loadCSV() {
     });
 }
 
-export function createCZML(date: string, aqData, marineData) {
+export function pushCSVintoCZML(date: string) {    
+
+    getAllCSVFiles().then((csvFiles) => {
+
+        let [xiamen, hongwen, gulangya, marineTraffic] = csvFiles;
+
+        var airQuality = {};
+        const sensors = [xiamen, hongwen, gulangya];
+        for (const sensorIndex in sensors) {
+            mergeAirQualityData(airQuality, sensors[sensorIndex], sensorIndex);
+        }
+        // console.log(xiamen);
+        console.log(airQuality);
+
+        // createCZML(date, airQuality, marineTraffic);
+    }).catch(err => {
+        console.log(err);
+    });
+}
+
+export function mergeAirQualityData(superSet, minorSet, sensorIndex) {
+
+    var sensorKeys = {
+        0: "Xiamen",
+        1: "Hongwen",
+        2: "Gulangya"
+    }
+
+    var elementKeys = {
+        0: "Date",
+        1: "Primary Value",
+        2: "Conditon",
+        3: "PM2.5",
+        4: "PM10",
+        5: "O3",
+        6: "NO2",
+        7: "SO2",
+        8: "CO"
+    }
+
+    var set = minorSet.split('\n');
+
+    const sensorKey = sensorKeys[sensorIndex]
+
+    console.log(`~~~~${sensorKey}~~~~`)
+    // console.log(set1)
+    for (const part in set) {
+        const line = set[part].split("\r")[0];
+        // console.log(line);
+        if (line.includes("Date")) {
+            // Skip
+        } else {
+            const breakdown = line.split(",");
+            
+            var date = "";
+            for (const sIndex in breakdown) {
+
+                const index = parseInt(sIndex);
+                const value = breakdown[index];
+                const elementKey = elementKeys[index];
+
+                console.log(`${elementKey} (${index}) | ${value}`);
+
+                if (index === 0) {
+                    date = value;
+                    if (superSet[date]) {
+                        // superSet[date][sensorKey] = {}
+                    } else {
+                        superSet[date] = {
+                            [sensorKey]: {}
+                        }
+                    }
+                    // console.log(superSet);
+                } else {
+                    superSet[date][sensorKey][elementKey] = value;
+                }
+                
+            }
+        }
+
+    }
+    
+}
+
+export function createCZML(date: string, airQuality, marineTraffic) {
     
     getAllCZMLFiles().then(function(czmlArray) {
         // console.log(czmlArray[0].toJSON());
@@ -132,7 +236,7 @@ export function createCZML(date: string, aqData, marineData) {
 
                 if (item.label) {
                     item.label.scale = "0.5";
-                    item.label.horizontalOrigin = "RIGHT";
+                    // item.label.horizontalOrigin = "RIGHT";
                     item.label.showBackground = true;
                     item.label.verticalOrigin = "CENTER";
                 }
@@ -299,5 +403,5 @@ function createCoreFile(czmlData) {
     });
 }
 
-
-createCZML("");
+// pushCSVintoCZML("")
+createCZML("", "", "");

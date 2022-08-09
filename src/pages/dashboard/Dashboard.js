@@ -45,22 +45,21 @@ export function Dashboard() {
 
   // const file = "../../../gen_core.czml"
 
-  const coreFile = "../../czml/gen_core.czml"
-  const coreFile2 = "../../czml/electrical-v2.czml"
-
+  const coreFile =  require("../../czml/gen_core.czml");
+  const coreFile2 = require("../../czml/electrical_grid.czml");
 
   // this requests the file and executes a callback with the parsed result once
   // it is available
-  
+
   const loadCZMLFile = async () => {
+    
     // const jsonData = require("../../czml/gen_core.czml"); 
     // console.log(jsonData);
     // setCZMLData(cur => jsonData).
-    const theFile = require(coreFile)
-    fetch(theFile)
+
+    fetch(coreFile)
       .then(response => response.json())
       .then(jsonResponse => {
-
         for (const i in jsonResponse) {
 
           console.log(jsonResponse[i]);

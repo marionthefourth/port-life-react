@@ -21,7 +21,8 @@ function App() {
     <>
       <CookiesProvider>
           <Routes>
-            <Route path="/" element={<Dashboard />}></Route>
+            <Route path="/" element={<Dashboard />}/>
+            <Route path="/demo" element={<Login/>}/>
           </Routes>
       </CookiesProvider>
     </>
