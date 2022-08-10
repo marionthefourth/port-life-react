@@ -1,6 +1,5 @@
 import { createDocumentHeader, createGrand, createParent, ElectricalGridCZMLParentKeys, FinancialCZMLKeys, CZMLKeys, AirQualityCZMLParentKeys, AirQualityCZMLKeys, AirQualityMetricKeys, createChild } from "./types";
 
-const Papa = require('papaparse');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 
@@ -142,7 +141,7 @@ export function processShipData(shipData) {
                         vesselName = value;
                         break;
                     case 1:
-                        date = value;
+                        date = standardizeDate(value)
                         if (marineTraffic[date]) {
                             // superSet[date][sensorKey] = {}
                         } else {
@@ -197,7 +196,8 @@ export function processPowerOutputData(outputData) {
         } else {
             const breakdown = line.split(",");
             if (breakdown[4] && breakdown[0]) {
-                powerOutput[breakdown[0]] = {
+                const date = standardizeDate(breakdown[0]);
+                powerOutput[date] = {
                     "Output": parseFloat(breakdown[4])
                 }
             }
@@ -253,7 +253,7 @@ export function mergeAirQualityData(superSet, minorSet, sensorIndex) {
                 // console.log(`${elementKey} (${index}) | ${value}`);
 
                 if (index === 0) {
-                    date = value;
+                    date = standardizeDate(value);
                     if (superSet[date]) {
                         superSet[date][sensorKey] = {}
                     } else {
@@ -308,6 +308,51 @@ function adjustLabel(item) {
         item.label.showBackground = true;
         item.label.verticalOrigin = "CENTER";
     }
+}
+
+function loadCSV() {
+    getAllCSVFiles().then((csvFiles) => {
+
+        let [
+            xiamen, hongwen, gulangyu, marineTraffic, powerOutput, 
+            futureXiamen, futureHongwen, futureGulangyu, futurePowerOutput
+        ] = csvFiles;
+        
+        // Process Air Quality Data
+        var airQuality = {};
+        
+        const sensors = [xiamen, hongwen, gulangyu];
+
+        console.log(sensors)
+        
+        for (const sensorIndex in sensors) {
+            mergeAirQualityData(airQuality, sensors[sensorIndex], sensorIndex);
+        }
+
+        // console.log(airQuality);
+
+        // Process Ship Data
+
+        var shipData = processShipData(marineTraffic);
+
+        // console.log(shipData);
+
+        var powerData = processPowerOutputData(powerOutput);
+
+        var data = {
+          "Air Quality": airQuality,
+          "Ship Data": shipData,
+          "Power Output": powerData
+        }
+
+        console.log(data)
+
+        createDataFile(data);
+        // console.log(powerData);
+        // createCZML(date, airQuality, marineTraffic);
+    }).catch(err => {
+        console.log(err);
+    });
 }
 
 export function createCZML(date: string, airQuality, marineTraffic) {
@@ -501,6 +546,13 @@ export function createCZML(date: string, airQuality, marineTraffic) {
     });
 }
 
+function standardizeDate(date) {
+    var standardize = date;
+    standardize = new Date(date);
+    standardize = `${standardize.getMonth()+1}/${standardize.getDate()}/${standardize.getFullYear()}`
+    return standardize
+}
+
 function createCoreFile(czmlData) {
     // console.log(czml);
 
@@ -513,5 +565,17 @@ function createCoreFile(czmlData) {
     });
 }
 
+function createDataFile(csvData) {
+    var dictstring = JSON.stringify(csvData);
+    var fs = require('fs');
+    fs.writeFile("gen_data.json", dictstring, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+}
+
+
+loadCSV()
 // loadCSVData("")
 //createCZML("", "", "");

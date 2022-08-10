@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import * as fs from 'fs';
 var Promise = require('bluebird');
 
@@ -43,7 +42,7 @@ function getFile(fileName) {
     return fs.readFileAsync(fileName);
 }
 
-function getAllCZMLFiles() {
+export function getAllCZMLFiles() {
     var promises = [];
 
     for (const key in czmlFiles) {
@@ -52,6 +51,36 @@ function getAllCZMLFiles() {
 
     // return promise that is resolved when all .czml files are done loading
     return Promise.all(promises);
+}
+
+function getAllCSVUrls() {
+    const urls = []
+
+    for (const key in airQualityCSVFiles) {
+        urls.push(airQualityCSVFiles[key]);
+    }
+
+    for (const key in marineTrafficCSVFiles) {
+        urls.push(marineTrafficCSVFiles[key]);
+    }
+
+    for (const key in powerOutputCSVFiles) {
+        urls.push(powerOutputCSVFiles[key]);
+    }
+
+    for (const key in futureAirQualityCSVFiles) {
+        urls.push(futureAirQualityCSVFiles[key]);
+    }
+
+    for (const key in futurePowerOutputFiles) {
+        urls.push(futurePowerOutputFiles[key]);
+    }
+
+    return urls;
+}
+
+export function altGetAllCSVFiles() {
+    return Promise.all(getAllCSVUrls().map(u=>fetch(u)));
 }
 
 export function getAllCSVFiles() {
@@ -143,6 +172,8 @@ export function processShipData(shipData) {
                         break;
                     case 1:
                         date = value;
+                        date = new Date(date);
+                        date = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
                         if (marineTraffic[date]) {
                             // superSet[date][sensorKey] = {}
                         } else {
@@ -197,7 +228,10 @@ export function processPowerOutputData(outputData) {
         } else {
             const breakdown = line.split(",");
             if (breakdown[4] && breakdown[0]) {
-                powerOutput[breakdown[0]] = {
+                var date = breakdown[0];
+                date = new Date(date);
+                date = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
+                powerOutput[date] = {
                     "Output": parseFloat(breakdown[4])
                 }
             }
@@ -254,6 +288,8 @@ export function mergeAirQualityData(superSet, minorSet, sensorIndex) {
 
                 if (index === 0) {
                     date = value;
+                    date = new Date(date);
+                    date = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
                     if (superSet[date]) {
                         superSet[date][sensorKey] = {}
                     } else {
@@ -274,7 +310,7 @@ export function mergeAirQualityData(superSet, minorSet, sensorIndex) {
     
 }
 
-function fixBillboard(item) {
+export function fixBillboard(item) {
     if (item["billboard"]) {
         if (item["billboard"]["width"]) {
             item.billboard.width = parseFloat(item.billboard.width);
@@ -285,7 +321,7 @@ function fixBillboard(item) {
     }
 }
 
-function fixPolyline(item) {
+export function fixPolyline(item) {
     if (item["polyline"]) {
         if (item["polyline"]["width"]) {
             item.polyline.width = parseFloat(item.polyline.width);
@@ -293,7 +329,7 @@ function fixPolyline(item) {
     }
 }
 
-function fixOutlineWidth(item) {
+export function fixOutlineWidth(item) {
     if (item["label"]) {
         if (item["label"]["outlineWidth"]) {
             item.label.outlineWidth = parseInt(item.label.outlineWidth)
@@ -301,223 +337,13 @@ function fixOutlineWidth(item) {
     }
 }
 
-function adjustLabel(item) {
+export function adjustLabel(item) {
     if (item.label) {
         item.label.scale = "0.5";
         // item.label.horizontalOrigin = "RIGHT";
         item.label.showBackground = true;
         item.label.verticalOrigin = "CENTER";
     }
-}
-
-
-export function createCZML(date, airQuality, marineTraffic) {
-    
-    getAllCZMLFiles().then(function(czmlArray) {
-        // console.log(czmlArray[0].toJSON());
-        // Parse Files
-        const coreCZML = [];
-        // const documentHeader = createDocumentHeader();
-        const documentHeader = {
-            "id": "document",
-            "version": "1.0"
-        }
-        coreCZML.push(documentHeader);
-
-        const czmlKeys = {}
-
-        for (const i in czmlArray) {
-
-            const czml = JSON.parse(czmlArray[i].toString());
-
-            const header = czml.shift();
-            const name = header.id;
-            
-            const grandKey = name + " Data";
-            
-            // const category = createGrand(grandKey);
-            const category = {
-                "id": v4(),
-                "name": grandKey 
-            }
-            const id = category.id;
-            coreCZML.push(category);
-
-            czmlKeys[name] = {
-                "id": id,
-            }
-
-            for (const z in czml) {
-                
-                const item = czml[z];
-
-                adjustLabel(item);
-                fixOutlineWidth(item);
-
-                switch (name) {
-                    case "Electrical":
-                        if (item.name) {
-                            czmlKeys[name][item.name] = item.id
-                        }
-
-                        item["parent"] = category.id;
-                        break;
-                    case "Financial":
-
-                        if (item.name) {
-                            czmlKeys[name][item.name] = item.id
-                        }
-
-                        item["parent"] = category.id;
-
-                        switch (item.name) {
-                            case "Border":
-                                break;
-                            case "Date":
-                                // item.label.text = `Date: XX/XX/XXXX`
-                                break;
-                            case "Ship Type":
-                                break;
-                            case "TEU Capacity":
-                                //item.label.text = `TEU Capacity: TBD`
-                                break;
-                            case "Total Revenue":
-                                // item.label.text = `Total Revenue: TBD`
-                                break;
-                            case "Value Per TEU":
-                                // item.label.text = `Value Per TEU: TBD`
-                                break;
-                        }
-                        break;
-                    case "Air Quality":
-                        // Need to capture
-                        if (item.id !== "Port Name" && item.id.includes("Port")) {
-
-                            // const port = createParent(item.name, id);
-                            const port = {
-                                "id": v4(),
-                                "parent": id,
-                                "name": item.name,
-                            }
-
-                            if (czmlKeys[name]["ports"]) {
-                                czmlKeys[name]["ports"].push({"id": port.id})
-                            } else {
-                                czmlKeys[name]["ports"] = [{"id": port.id}]
-                            }
-
-                        } else {
-
-                            const portIndex = parseInt(item.parent.split(" ")[1]) - 1;
-                            const parentID = czmlKeys[name]["ports"][portIndex].id;
-                            item.parent = parentID;
-
-                            switch (item.name) {
-                                case "Pin":
-                                    break;
-                                case "Port Name":
-                                    break;
-                                case "Ranges":
-                                    break;
-                                case "Condition":
-                                    break;
-                                default:
-                                    const itemName = item.name.split(" ");
-                                    if (itemName[1] === "Value") {
-                                        var value = "TBD"
-                                        switch (itemName[0]) {
-                                            case "CO":
-                                                break;
-                                            case "PM2.5": case "Primary":
-                                                break;
-                                            case "PM10":
-                                                break;
-                                            case "NO2":
-                                                break;
-                                            case "SO2":
-                                                break;
-                                            case "O3":
-                                                break; 
-                                        }
-
-                                        // item.label.text = value;
-                                    }
-                            }
-
-                            czmlKeys[name]['ports'][portIndex][item.name] = item.id;
-
-                            break;
-
-                        }
-                        switch (item.name) {
-                            case "Xiamen":
-                            case "Hongwen, Xiamen":
-                            case "Gulangyu, Xiamen":
-                                // const parent = createParent(item.name, id);
-                                const parent = {
-                                    "id": v4(),
-                                    "parent": id,
-                                    "name": item.name,
-                                }
-                                item.parent = id;
-                                item.id = parent.id;
-                                
-                                break;
-                            default:
-                                
-                        }
-                        break;
-                    case "Electrical Grid":
-                        if (item.name) {
-                            // item["parent"] = category.id;
-                            if (item.parent === czmlKeys[name].id) {
-                                // One of the Parents, not Children
-                                czmlKeys[name][item.name] = {
-                                    "id": item.id,
-                                    "items": []
-                                }
-                            }
-                        } else {
-                            for (const key in czmlKeys[name]) {
-                                // On of the children
-                                const parent = czmlKeys[name][key];
-                                // console.log(parent);
-                                if (item.parent === parent.id) {
-                                    parent.items.push(item.id);
-                                }
-                            }
-                        }
-
-                        fixBillboard(item);
-                        fixPolyline(item);
-
-                        switch (item.name) {
-                            case "Power Lines":
-                                break;
-                            case "Power Line Cranes":
-                                break;
-                            case "Power Line Columns":
-                                
-                                
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                }
-
-                coreCZML.push(item);
-            }
-        }
-
-        console.log(czmlKeys);
-
-        createCoreFile(coreCZML);
-        
-    }, function(err) {
-        // an error occurre
-        console.log(err);
-    });
 }
 
 function createCoreFile(czmlData) {
