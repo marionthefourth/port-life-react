@@ -1,0 +1,977 @@
+[
+  {
+    "id": "Air Quality",
+    "version": "1.0"
+  },
+  {
+    "id": "Port 1",
+    "name": "Xiamen"
+  },
+  {
+    "id": "Port 2",
+    "name": "Hongwen, Xiamen"
+  },
+  {
+    "id": "Port 3",
+    "name": "Gulangyu, Xiamen"
+  },
+  {
+    "id": "915e7f76-ac59-483d-ba54-eb62cccf81a0",
+    "parent": "Port 1",
+    "name": "Pin",
+    "position": {
+      "cartographicDegrees": [
+        118.09025601206041,
+        24.48080694520834,
+        0
+      ]
+    },
+    "billboard": {
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABOFJREFUaEPtmX1sE3UYx7+/u+6le2mv3ZCp4CZRx5aI8QWETZC+DBGDS3AbOtdumQQz42sU47tLIOJblhhMRJHg2oHIBoYYIBu0nZE5MCI6CZlGw3BEJd1Lr+ylZev9zFXEjZTd3XqnCen92ef7e57v537P5Xf3lEDBFXB5yglDVlJgMSjyFCyVLyXoIcBXVKBfcE5bs9yFRK5QhAAhu0R9hB8RIn08I3etEh2bbRRYY9rfuSmtkAsjC4R3ee+kBEeE4RA9t7uDhLp6lHhTrE2dl4fMB4opk55KCMVCo9N6VCqJPBC3dwcFHhp4by/GevukcqoST5qdDfNTpSDAp0aHtVIqqSRIoMmzDJS0hrt6EHB5pPKpGuecNqTMywMIvYersrVNlVwaxOV9EQRvBFs6MHqkW1WjUsn0C+fCUFYMULzEOa0b4wXZCYLVfW82I9IXlKqtapzNNiD7hXIR5DPOaX0wPhC31wdg6dnntqpqUm6yme8+IkrbOYfVkgAR70AgsSNym2dqXaK1Lr0/idZSp7OQaK1Ea6nUSpemSbRWorUSrZU42SfdAekPqyvopfFDAGv739mD8bODGj0JsdPqZpqQtW6VGPyIc1gfjet7ZMDteZwB2RTcdRij3/z0n4LoF+TDUHEXBNAnzA7b+3GBBNyHSgCm7X8dPkBYxjnsB+MCERfzV8I4KApycUA3Ggm2dLDhH09r2mIpN+eK05MIk65nVR3QRT95J4xMheHRyPifAfZyNIMf7J8S1FS34rJxXQ4XBYgK1B6Z/lM1CsMw5ZTSRQSYFcuNED4vDDTsZSL9sUdHuhwO5qdLBaLTxZwdU+AMIaQTgtAsd+4r+pA8R5T00GCTbz2h9BXe5UWo61TMpfr5N8KweolY+DWjw7peSf64H3a5xXi3bzkFPTDs+QFDB76Nucywqgj6ogIwLFNkqFzaKTe3lE7VHfFvPZyZlHw+GO4+g8DHrTFrZz1TCvZq85Cp2p4pZU5JXFUQsfBgo+cXjISu929sZmh4bJKXpOtmwPzk/eJvuzmHtUyJUSmt+iAuzzZCSI24I+LOTLzSFhcis3QRQEgdV2XZLGVOSVx1kIDbtwagW4Zbj2Ho4PeTvBgr70bqbTeAEYR8Q7X9ZyVGpbSqgwTd3nwB6A6dOA3+k0P/1idA1vNlYM0Zv5lqSnKljCmNqw4iGgi4vSNCYDjVv2HnxfxJc3Jgfuw+sa02c1WWOqVGpfQagfjaAFrS3/A5xn8fiHpIt92CjHvvUHRaS5mfGNcEZNDtqScgr5/b04mRr09G63G1dqQU5oId012VWbvEr8SkHK02INvbLUQQvKHjv4Lf3g6SpEP2yxWU0acc42rs8+UYU6rRBIRSSvgmnzDu59H/VguSb7oWprXLQQnZYKqyvKrUpBy9JiBiYd7tO0lBC/z1O5BWXID0klvFNzs7V2XV5K9hzUACbs8WgKzhGz3QFxcieU5O+PgpJsNSbxmXc4eVajQD4d2+hylo08iXJ6AvnkvBMvtMTvtKpQbl6jUD6W/aP4ulqb3jvX7oZs8ABZ41OawNco0p1WkGcuFgFL+uLrzl0ts5h+07pQbl6rUG2QdgBYkIfxhr7NfINTUdndYg6wC8TQGXyWGtno5BuWs0Belr9CzQMeQoBa01OWzb5Jqaju4vLf8oUSWTRZMAAAAASUVORK5CYII=",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "CLAMP_TO_GROUND",
+      "width": 50,
+      "height": 50,
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+    {
+    "id": "43e5c8e3-e550-46dc-8eae-a37ff4f32981",
+    "parent": "Port 2",
+    "name": "Pin",
+    "position": {
+      "cartographicDegrees": [
+        118.15008269598539,
+        24.47323209425602,
+        0
+      ]
+    },
+    "billboard": {
+      "image": {
+        "reference": "0eb857b1-1f78-4389-bf9e-b3fa366ece94#billboard.image"
+      },
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "CLAMP_TO_GROUND",
+      "width": 50,
+      "height": 50,
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "c25143c0-7530-4793-a3de-82e9f4a99cd2",
+    "parent": "Port 3",
+    "name": "Pin",
+    "position": {
+      "cartographicDegrees": [
+        118.06475718802153,
+        24.4476344546326,
+        0
+      ]
+    },
+    "billboard": {
+      "image": {
+        "reference": "0eb857b1-1f78-4389-bf9e-b3fa366ece94#billboard.image"
+      },
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "CLAMP_TO_GROUND",
+      "width": 50,
+      "height": 50,
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "398ba8b9-b31a-4a40-8995-f5837082b3d0",
+    "parent": "Port 3",
+    "name": "Ranges",
+    "position": {
+      "cartographicDegrees": [
+        118.06195344717996,
+        24.465797143389103,
+        4.656612873077393e-10
+      ]
+    },
+    "label": {
+      "text": "0-50 good, 50-100 moderate, 100-150 unhealthy",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "8c148929-6160-4d97-9e5c-ae9f3abd1bf0",
+    "parent": "Port 3",
+    "name": "PM2.5 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05777865391596,
+        24.463132534527382,
+        0
+      ]
+    },
+    "label": {
+      "text": "PM2.5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "786e457e-dd7e-4a87-b0a7-8d272cdfe0c7",
+    "parent": "Port 3",
+    "name": "PM10 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05765010740815,
+        24.461336496140472,
+        0
+      ]
+    },
+    "label": {
+      "text": "PM10",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "64ff064c-ccb5-4b47-8bcd-a3e7b88cb09c",
+    "parent": "Port 3",
+    "name": "O3 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05619538497763,
+        24.45965691462133,
+        0
+      ]
+    },
+    "label": {
+      "text": "O3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "5d8c0b3c-338e-46c2-bc3e-8d139c105ff0",
+    "parent": "Port 3",
+    "name": "NO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05714496525019,
+        24.458036102798857,
+        0
+      ]
+    },
+    "label": {
+      "text": "NO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "502382bf-5b21-4305-b16a-3d75189dcbd1",
+    "parent": "Port 3",
+    "name": "SO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05717357924921,
+        24.456414728075814,
+        0
+      ]
+    },
+    "label": {
+      "text": "SO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "cd4e750a-e97d-48df-a6df-b118a44971e7",
+    "parent": "Port 3",
+    "name": "CO Label",
+    "position": {
+      "cartographicDegrees": [
+        118.05679432141767,
+        24.4549091286235,
+        0
+      ]
+    },
+    "label": {
+      "text": "CO",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "6b967cd2-99e0-47d3-91ac-aff8e9df4fb8",
+    "parent": "Port 3",
+    "name": "PM2.5 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.0636279128108,
+        24.463018611721434,
+        0
+      ]
+    },
+    "label": {
+      "text": "30",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "5366e4bb-aa1b-4878-a366-a89f47c10dd4",
+    "parent": "Port 3",
+    "name": "PM10 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.06362758850725,
+        24.46133826548734,
+        0
+      ]
+    },
+    "label": {
+      "text": "10",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "92944694-88c0-4b6b-9e9f-4eb3be3fa709",
+    "parent": "Port 3",
+    "name": "O3 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.0636278954335,
+        24.459717029712166,
+        -1.1406325468715177e-9
+      ]
+    },
+    "label": {
+      "text": "11",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "452860d1-f608-4e6e-ad65-0b8a2e6c70c5",
+    "parent": "Port 3",
+    "name": "NO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.06375222717044,
+        24.45797874077052,
+        0
+      ]
+    },
+    "label": {
+      "text": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "41649e70-8eb8-457d-ab9a-708eeb591919",
+    "parent": "Port 3",
+    "name": "SO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.06362598961492,
+        24.456531126481973,
+        0
+      ]
+    },
+    "label": {
+      "text": "5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "8e23180f-75ab-4b93-9282-c22322383767",
+    "parent": "Port 3",
+    "name": "CO Value",
+    "position": {
+      "cartographicDegrees": [
+        118.06375274598624,
+        24.455083486740254,
+        0
+      ]
+    },
+    "label": {
+      "text": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "2e176e1a-81d4-4269-8588-826d6ef026f6",
+    "parent": "Port 3",
+    "name": "Port Name",
+    "position": {
+      "cartographicDegrees": [
+        118.06047408879108,
+        24.4683414111023,
+        0
+      ]
+    },
+    "label": {
+      "text": "Gulangyu, Xiamen",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "bead2d08-5ded-41e6-b583-a835bec91cbc",
+    "parent": "Port 1",
+    "name": "Port Name",
+    "position": {
+      "cartographicDegrees": [
+        118.08338128347667,
+        24.50414142271852,
+        0
+      ]
+    },
+    "label": {
+      "text": "Xiamen",
+      "style": "FILL",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "b8dac651-7c36-40e1-a927-88823b600b30",
+    "parent": "Port 1",
+    "name": "Ranges",
+    "position": {
+      "cartographicDegrees": [
+        118.08979852588253,
+        24.50126647419853,
+        0
+      ]
+    },
+    "label": {
+      "text": "0-50 good, 50-100 moderate, 100-150 unhealthy",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "24693ffa-8d14-4807-af2c-5d264e39ab7a",
+    "parent": "Port 1",
+    "name": "PM2.5 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07931164274738,
+        24.49956481047191,
+        -1.1406325468715177e-9
+      ]
+    },
+    "label": {
+      "text": "PM2.5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "da472d75-2421-4312-8ec0-bb31be3b6b46",
+    "parent": "Port 1",
+    "name": "PM10 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07930644776555,
+        24.497947240364446,
+        0
+      ]
+    },
+    "label": {
+      "text": "PM10",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "519c902e-1842-436f-81b5-ee2d93c1c1c4",
+    "parent": "Port 1",
+    "name": "O3 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07829296919668,
+        24.496497800300443,
+        0
+      ]
+    },
+    "label": {
+      "text": "O3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "d2144cd8-ba92-4084-839b-5f91037e11bc",
+    "parent": "Port 1",
+    "name": "NO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07943360126237,
+        24.494932734335467,
+        0
+      ]
+    },
+    "label": {
+      "text": "NO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "4f15d20c-4eb9-4409-8d99-f0817330fa18",
+    "parent": "Port 1",
+    "name": "SO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07969811512169,
+        24.492901694384642,
+        0
+      ]
+    },
+    "label": {
+      "text": "SO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "650cd81e-2a59-42bc-863b-09a94e95eb41",
+    "parent": "Port 1",
+    "name": "CO Label",
+    "position": {
+      "cartographicDegrees": [
+        118.07938151818043,
+        24.49139436815085,
+        0
+      ]
+    },
+    "label": {
+      "text": "CO",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "b559bad7-5c62-4a11-8877-4e490d5e42be",
+    "parent": "Port 1",
+    "name": "PM2.5 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.08793337142393,
+        24.4994532888278,
+        0
+      ]
+    },
+    "label": {
+      "text": "59",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "8c7b6c26-ddc0-4764-b88b-1db5f94507ee",
+    "parent": "Port 1",
+    "name": "PM10 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.0880601583186,
+        24.49800403517855,
+        0
+      ]
+    },
+    "label": {
+      "text": "42",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "754189e4-4bb4-4cf8-9906-8bd0da44bb13",
+    "parent": "Port 1",
+    "name": "O3 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.08780684570604,
+        24.496728861876875,
+        0
+      ]
+    },
+    "label": {
+      "text": "13",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "ba46db85-79c6-47e8-9bde-f50a7f00bff2",
+    "parent": "Port 1",
+    "name": "NO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.08780696641801,
+        24.49510569308267,
+        -1.1406325468715177e-9
+      ]
+    },
+    "label": {
+      "text": "4",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "eb022aac-ed3f-4894-ac15-613738372c0c",
+    "parent": "Port 1",
+    "name": "SO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.087427000783,
+        24.493192630947938,
+        0
+      ]
+    },
+    "label": {
+      "text": "1",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "075c51ea-9793-45e2-8ecd-0f74b9ceddaa",
+    "parent": "Port 1",
+    "name": "CO Value",
+    "position": {
+      "cartographicDegrees": [
+        118.08723706582973,
+        24.491569424638712,
+        0
+      ]
+    },
+    "label": {
+      "text": "5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "838d65b6-8a86-41b0-af9a-f5a477a3ee6e",
+    "parent": "Port 2",
+    "name": "Port Name",
+    "position": {
+      "cartographicDegrees": [
+        118.14893637258406,
+        24.497152392897668,
+        0
+      ]
+    },
+    "label": {
+      "text": "Hongwen, Xiamen",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "20ca8808-c1bf-4b55-a149-6cd3838d4926",
+    "parent": "Port 2",
+    "name": "Ranges",
+    "position": {
+      "cartographicDegrees": [
+        118.14787028245519,
+        24.495423244502355,
+        0
+      ]
+    },
+    "label": {
+      "text": "0-50 good, 50-100 moderate, 100-150 unhealthy",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "90fc4af0-7bd3-441f-8919-c358ebf8158c",
+    "parent": "Port 2",
+    "name": "PM2.5 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14294530451676,
+        24.493605231857742,
+        0
+      ]
+    },
+    "label": {
+      "text": "PM2.5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "bf7fb956-f149-45d6-94da-fda165e473f2",
+    "parent": "Port 2",
+    "name": "PM10 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14308228398323,
+        24.492190808702176,
+        0
+      ]
+    },
+    "label": {
+      "text": "PM10",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "efcea12f-14e8-499c-88cf-48d308aeac95",
+    "parent": "Port 2",
+    "name": "O2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14246077797985,
+        24.490800784606016,
+        0
+      ]
+    },
+    "label": {
+      "text": "O2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "bfe63472-5688-48a1-bffd-70b1165ef6e3",
+    "parent": "Port 2",
+    "name": "NO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14232258762178,
+        24.48928438156815,
+        4.656612873077393e-10
+      ]
+    },
+    "label": {
+      "text": "NO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "545ba86e-ac80-43a2-bd28-9d6b5bc7cdb8",
+    "parent": "Port 2",
+    "name": "SO2 Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14190822558209,
+        24.487261106759124,
+        0
+      ]
+    },
+    "label": {
+      "text": "SO2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "547bdea3-350e-4883-a8b3-d70bec914cc9",
+    "parent": "Port 2",
+    "name": "CO Label",
+    "position": {
+      "cartographicDegrees": [
+        118.14218430384977,
+        24.485744699619723,
+        0
+      ]
+    },
+    "label": {
+      "text": "CO",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "30ff9cf0-c7a9-4e59-8a3e-3fc6854141db",
+    "parent": "Port 2",
+    "name": "PM2.5 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14936581099171,
+        24.493831881644308,
+        0
+      ]
+    },
+    "label": {
+      "text": "43",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "57415b60-4d59-4553-a24b-49eda393e52a",
+    "parent": "Port 2",
+    "name": "PM10 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14936556878163,
+        24.49212587175251,
+        0
+      ]
+    },
+    "label": {
+      "text": "34",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "b7cd4a0e-e4f2-44c5-8598-eb564676a6fe",
+    "parent": "Port 2",
+    "name": "O2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14881300018868,
+        24.49067265923023,
+        0
+      ]
+    },
+    "label": {
+      "text": "11",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "0f532915-dec4-4c17-94cd-bb22d82dcae5",
+    "parent": "Port 2",
+    "name": "NO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14881278323232,
+        24.488966678366282,
+        0
+      ]
+    },
+    "label": {
+      "text": "5",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "e1d1b245-59b2-406b-8934-63acb2beaeb9",
+    "parent": "Port 2",
+    "name": "SO2 Value",
+    "position": {
+      "cartographicDegrees": [
+        118.1484673134086,
+        24.486944816135434,
+        0
+      ]
+    },
+    "label": {
+      "text": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "f1a88755-28c9-49bd-9e59-cb30245e5a30",
+    "parent": "Port 2",
+    "name": "CO Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14832903611081,
+        24.48530205173344,
+        0
+      ]
+    },
+    "label": {
+      "text": "4",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "b66cc981-5549-4e43-9af1-061bc6fe8407",
+    "parent": "Port 3",
+    "name": "Primary Value",
+    "position": {
+      "cartographicDegrees": [
+        118.06064960562031,
+        24.471388992009864,
+        0
+      ]
+    },
+    "label": {
+      "text": "30",
+      "scale": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "c0835550-7e5c-4201-88ea-e6a3e11057cc",
+    "parent": "Port 1",
+    "name": "Primary Value",
+    "position": {
+      "cartographicDegrees": [
+        118.08317278412663,
+        24.505884839200625,
+        0
+      ]
+    },
+    "label": {
+      "text": "59",
+      "scale": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "72b9ebc4-6532-4b44-86c9-c742f8e68e2d",
+    "parent": "Port 2",
+    "name": "Primary Value",
+    "position": {
+      "cartographicDegrees": [
+        118.14560426771807,
+        24.499314736557125,
+        0
+      ]
+    },
+    "label": {
+      "text": "43",
+      "scale": "3",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "408920f3-9c09-45d6-b6a8-5489fccd6914",
+    "parent": "Port 2",
+    "name": "Condition",
+    "position": {
+      "cartographicDegrees": [
+        118.1570104302423,
+        24.499698944761306,
+        0
+      ]
+    },
+    "label": {
+      "text": "Good",
+      "scale": "2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.06000000000000005,
+          1,
+          0.14273958333333325,
+          1
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "0b74f161-fbac-4423-9611-577a57da9b9a",
+    "parent": "Port 3",
+    "name": "Condition",
+    "position": {
+      "cartographicDegrees": [
+        118.07151785224886,
+        24.47109243028017,
+        4.656612873077393e-10
+      ]
+    },
+    "label": {
+      "text": "Good",
+      "scale": "2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          0.19999999999999996,
+          1,
+          0.2970833333333335,
+          1
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  },
+  {
+    "id": "1eeae60b-f7bd-4bdd-9698-9220ceaada09",
+    "parent": "Port 1",
+    "name": "Condition",
+    "position": {
+      "cartographicDegrees": [
+        118.0990515715149,
+        24.50635018717636,
+        0
+      ]
+    },
+    "label": {
+      "text": "Moderate",
+      "scale": "2",
+      "verticalOrigin": "BOTTOM",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "fillColor": {
+        "rgbaf": [
+          1,
+          0.6554322916666666,
+          0.08999999999999997,
+          1
+        ]
+      },
+      "disableDepthTestDistance": 1000000000
+    }
+  }
+]

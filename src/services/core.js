@@ -1,8 +1,8 @@
-import { createDocumentHeader, createGrand, createParent, ElectricalGridCZMLParentKeys, FinancialCZMLKeys, CZMLKeys, AirQualityCZMLParentKeys, AirQualityCZMLKeys, AirQualityMetricKeys, createChild } from "./types";
-
-const Papa = require('papaparse');
+import { v4 } from 'uuid';
+import * as fs from 'fs';
 var Promise = require('bluebird');
-var fs = Promise.promisifyAll(require('fs'));
+
+//var fs = Promise.promisifyAll(require('fs'));
 
 const czmlRoot = "backend/czml"
 const actualCSVRoot = "backend/csvs/actual"
@@ -39,7 +39,7 @@ const futurePowerOutputFiles = {
     "Power Output":   `${futureCSVRoot}/future_power_output.csv`,
 }
 
-function getFile(fileName: string) {
+function getFile(fileName) {
     return fs.readFileAsync(fileName);
 }
 
@@ -58,7 +58,7 @@ export function getAllCSVFiles() {
     const files = []
 
     // Reading file
-    let readFile =(filename)=>{
+    let readFile = (filename) =>{
         return new Promise(function(resolve, reject){
             fs.readFile(filename, 'utf8', function(err, data){
                 if(err){
@@ -310,13 +310,18 @@ function adjustLabel(item) {
     }
 }
 
-export function createCZML(date: string, airQuality, marineTraffic) {
+
+export function createCZML(date, airQuality, marineTraffic) {
     
     getAllCZMLFiles().then(function(czmlArray) {
         // console.log(czmlArray[0].toJSON());
         // Parse Files
         const coreCZML = [];
-        const documentHeader = createDocumentHeader();
+        // const documentHeader = createDocumentHeader();
+        const documentHeader = {
+            "id": "document",
+            "version": "1.0"
+        }
         coreCZML.push(documentHeader);
 
         const czmlKeys = {}
@@ -326,11 +331,15 @@ export function createCZML(date: string, airQuality, marineTraffic) {
             const czml = JSON.parse(czmlArray[i].toString());
 
             const header = czml.shift();
-            const name = header.id as CZMLKeys;
+            const name = header.id;
             
             const grandKey = name + " Data";
             
-            const category = createGrand(grandKey);
+            // const category = createGrand(grandKey);
+            const category = {
+                "id": v4(),
+                "name": grandKey 
+            }
             const id = category.id;
             coreCZML.push(category);
 
@@ -345,7 +354,7 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                 adjustLabel(item);
                 fixOutlineWidth(item);
 
-                switch (name as CZMLKeys) {
+                switch (name) {
                     case "Electrical":
                         if (item.name) {
                             czmlKeys[name][item.name] = item.id
@@ -361,7 +370,7 @@ export function createCZML(date: string, airQuality, marineTraffic) {
 
                         item["parent"] = category.id;
 
-                        switch (item.name as FinancialCZMLKeys) {
+                        switch (item.name) {
                             case "Border":
                                 break;
                             case "Date":
@@ -384,7 +393,12 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                         // Need to capture
                         if (item.id !== "Port Name" && item.id.includes("Port")) {
 
-                            const port = createParent(item.name, id);
+                            // const port = createParent(item.name, id);
+                            const port = {
+                                "id": v4(),
+                                "parent": id,
+                                "name": item.name,
+                            }
 
                             if (czmlKeys[name]["ports"]) {
                                 czmlKeys[name]["ports"].push({"id": port.id})
@@ -398,7 +412,7 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                             const parentID = czmlKeys[name]["ports"][portIndex].id;
                             item.parent = parentID;
 
-                            switch (item.name as AirQualityCZMLKeys) {
+                            switch (item.name) {
                                 case "Pin":
                                     break;
                                 case "Port Name":
@@ -411,7 +425,7 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                                     const itemName = item.name.split(" ");
                                     if (itemName[1] === "Value") {
                                         var value = "TBD"
-                                        switch (itemName[0] as AirQualityMetricKeys) {
+                                        switch (itemName[0]) {
                                             case "CO":
                                                 break;
                                             case "PM2.5": case "Primary":
@@ -435,11 +449,16 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                             break;
 
                         }
-                        switch (item.name as AirQualityCZMLParentKeys) {
+                        switch (item.name) {
                             case "Xiamen":
                             case "Hongwen, Xiamen":
                             case "Gulangyu, Xiamen":
-                                const parent = createParent(item.name, id);
+                                // const parent = createParent(item.name, id);
+                                const parent = {
+                                    "id": v4(),
+                                    "parent": id,
+                                    "name": item.name,
+                                }
                                 item.parent = id;
                                 item.id = parent.id;
                                 
@@ -472,7 +491,7 @@ export function createCZML(date: string, airQuality, marineTraffic) {
                         fixBillboard(item);
                         fixPolyline(item);
 
-                        switch (item.name as ElectricalGridCZMLParentKeys) {
+                        switch (item.name) {
                             case "Power Lines":
                                 break;
                             case "Power Line Cranes":
