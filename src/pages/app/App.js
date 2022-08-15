@@ -7,15 +7,16 @@ import { useCookies } from 'react-cookie';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['userAuthorized']);
-  /*
   if(!cookies.userAuthorized || cookies.userAuthorized === undefined || cookies.userAuthorized === false) {
     return (
       <CookiesProvider>
-        <Login />
+        <Routes>
+            <Route path="/" element={<Login />}/>
+            <Route path="/demo" element={<Dashboard/>}/>
+          </Routes>
       </CookiesProvider>
     )
   }
-  */
 
   return (
     <>
