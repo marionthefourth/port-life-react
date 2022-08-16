@@ -70,8 +70,8 @@ export function Dashboard() {
   }
 
   function getFormattedDate(dateValue) {
-    const date = new Date(dateValue);
-    return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+    const dateFormat = new Date(dateValue);
+    return `${dateFormat.getMonth()+1}/${dateFormat.getDate()}/${dateFormat.getFullYear()}`;
   }
 
   function numberWithCommas(numberValue) {
@@ -100,6 +100,18 @@ export function Dashboard() {
     }
   }
 
+  function printReceivedData(shipData, aqData, electricData) {
+    console.log("Ship Data");
+    console.log(shipData);
+    console.log("--------");
+    console.log("AQ Data");
+    console.log(aqData);
+    console.log("-------");
+    console.log("Electric Data");
+    console.log(electricData);
+    console.log("-------");
+  }
+
   const loadCZMLFile = async () => {
 
     const inputDate = document.getElementById("dateInput");
@@ -113,11 +125,11 @@ export function Dashboard() {
 
         setCSVData(csv => {
 
-          const data = csv[0];
+          var shipData = csv["Ship Data"][date];
+          var aqData = csv["Air Quality"][date];
+          var electricData = csv["Power Output"][date];
 
-          var shipData = data["Ship Data"][date];
-          var aqData = data["Air Quality"][date];
-          var electricData = data["Power Output"][date];
+          // printReceivedData(shipData, aqData, electricData);
 
           if (!shipData) {
             console.log("Financial/Ship Data Generated");
@@ -166,7 +178,7 @@ export function Dashboard() {
                 if (shipData) {
                   teuValue = numberWithCommas(shipData["TEU"]);
                 } else {
-
+                  
                 }
 
                 item.label.text = `TEU Capacity: ${teuValue}`;
@@ -179,6 +191,7 @@ export function Dashboard() {
                 } else {
 
                 }
+
                 item.label.text = `Total Revenue: ${totalRevenue}`;
                 break;
 
@@ -187,23 +200,30 @@ export function Dashboard() {
                 break;
 
               case "Condition":
-                var condition = "TBD"
+                var condition = "TBD";
+
                 if (aqData) {
                   const port = getPort(item, aqData);
+
                   if (port) {
                     condition = port[item.name];
 
                     var conditionColor;
+
                     switch (condition) {
+
                       case "Good":
                         conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
                         break;
+
                       case "Moderate":
                         conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
                         break;
+
                       case "Unhealthy":
                         conditionColor = [1,0,0,1];
                         break;
+
                     }
 
                     item.label.fillColor.rgbaf = conditionColor;
@@ -231,7 +251,7 @@ export function Dashboard() {
 
                 if (aqData) {
                   const port = getPort(item, aqData);
-
+                  // console.log(port);
                   if (port) {
                     airMetric = port[item.name];
                   }
@@ -245,6 +265,9 @@ export function Dashboard() {
                   item.label.text = airMetric
                 }
                 break;   
+            
+              default:
+                break;
             }
           }
           setCZMLData(jsonResponse);
