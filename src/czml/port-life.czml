@@ -8,54 +8,8 @@
     "name": "Financial Data"
   },
   {
-    "id": "881db682-6c18-4cf3-8a4f-8314fe37486f",
-    "name": "Border",
-    "polygon": {
-      "positions": {
-        "cartographicDegrees": [
-          117.95468420109171,
-          24.62660021404865,
-          65.54568526082649,
-          117.9551297539007,
-          24.563770534231587,
-          24.64274681302736,
-          118.05576897438378,
-          24.558485462406264,
-          9.955555177748828,
-          118.05399788022466,
-          24.623236656574065,
-          21.10531898632076
-        ]
-      },
-      "holes": [],
-      "material": {
-        "solidColor": {
-          "color": {
-            "rgbaf": [
-              0.4980392156862745,
-              1,
-              0.8313725490196079,
-              0.3
-            ]
-          }
-        }
-      },
-      "outline": true,
-      "outlineColor": {
-        "rgbaf": [
-          0.4980392156862745,
-          1,
-          0.8313725490196079,
-          1
-        ]
-      },
-      "outlineWidth": 2
-    },
-    "parent": "811fc1e3-27a0-43c7-946d-5bc39f0fd368"
-  },
-  {
     "id": "758c944f-3278-4f5c-b141-ec88263f2e63",
-    "name": "Ship Count",
+    "name": "Information",
     "position": {
       "cartographicDegrees": [
         118.0046072560251,
@@ -64,72 +18,30 @@
       ]
     },
     "label": {
-      "text": "Ship Count: 25 Ships",
+      "text": "\nShip count: 25 ships\nTEU Capacity: 1028\nTEU Value: $500\nRevenue: $514,000\n",
+      "style": "FILL_AND_OUTLINE",
+      "horizontalOrigin": "CENTER",
       "verticalOrigin": "CENTER",
       "heightReference": "RELATIVE_TO_GROUND",
+      "outlineWidth": 2,
       "disableDepthTestDistance": 1000000000,
       "scale": "0.5",
-      "showBackground": true
-    },
-    "parent": "811fc1e3-27a0-43c7-946d-5bc39f0fd368"
-  },
-  {
-    "id": "93052f41-cf8d-4c9a-9ea1-a94acd097ad9",
-    "name": "TEU Capacity",
-    "position": {
-      "cartographicDegrees": [
-        117.9944911585503,
-        24.595493179293552,
-        -1.1406325468715177e-9
-      ]
-    },
-    "label": {
-      "text": "TEU Capacity: 1028",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    },
-    "parent": "811fc1e3-27a0-43c7-946d-5bc39f0fd368"
-  },
-  {
-    "id": "e58a99af-5980-4907-9aab-5635c0771181",
-    "name": "Value Per TEU",
-    "position": {
-      "cartographicDegrees": [
-        117.98842199005767,
-        24.584147925630607,
-        0
-      ]
-    },
-    "label": {
-      "text": "TEU Value: $500",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    },
-    "parent": "811fc1e3-27a0-43c7-946d-5bc39f0fd368"
-  },
-  {
-    "id": "68f83064-84e4-498f-8353-2a3409178f53",
-    "name": "Total Revenue",
-    "position": {
-      "cartographicDegrees": [
-        117.9937505972327,
-        24.572348143097578,
-        0
-      ]
-    },
-    "label": {
-      "text": "Revenue: $514,000",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
+      "showBackground": true,
+      "backgroundColor": {
+          "rgbaf": [
+              0.03702821655273435,
+              0.553046875,
+              0.4116792633628846,
+              0.5330468749999999
+          ]
+      },
+      "eyeOffset": {
+          "cartesian": [
+              1,
+              1,
+              1
+          ]
+      }
     },
     "parent": "811fc1e3-27a0-43c7-946d-5bc39f0fd368"
   },
@@ -217,530 +129,27 @@
     }
   },
   {
-    "id": "8c148929-6160-4d97-9e5c-ae9f3abd1bf0",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "PM2.5",
-    "position": {
-      "cartographicDegrees": [
-        118.05777865391596,
-        24.463132534527382,
-        0
-      ]
-    },
-    "label": {
-      "text": "PM2.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "786e457e-dd7e-4a87-b0a7-8d272cdfe0c7",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "PM10",
-    "position": {
-      "cartographicDegrees": [
-        118.05765010740815,
-        24.461336496140472,
-        0
-      ]
-    },
-    "label": {
-      "text": "PM10",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "64ff064c-ccb5-4b47-8bcd-a3e7b88cb09c",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "O3",
-    "position": {
-      "cartographicDegrees": [
-        118.05619538497763,
-        24.45965691462133,
-        0
-      ]
-    },
-    "label": {
-      "text": "O3",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "5d8c0b3c-338e-46c2-bc3e-8d139c105ff0",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "NO2",
-    "position": {
-      "cartographicDegrees": [
-        118.05714496525019,
-        24.458036102798857,
-        0
-      ]
-    },
-    "label": {
-      "text": "NO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "502382bf-5b21-4305-b16a-3d75189dcbd1",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "SO2",
-    "position": {
-      "cartographicDegrees": [
-        118.05717357924921,
-        24.456414728075814,
-        0
-      ]
-    },
-    "label": {
-      "text": "SO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "cd4e750a-e97d-48df-a6df-b118a44971e7",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "CO",
-    "position": {
-      "cartographicDegrees": [
-        118.05679432141767,
-        24.4549091286235,
-        0
-      ]
-    },
-    "label": {
-      "text": "CO",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "2e176e1a-81d4-4269-8588-826d6ef026f6",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "Port Name",
-    "position": {
-      "cartographicDegrees": [
-        118.06047408879108,
-        24.4683414111023,
-        0
-      ]
-    },
-    "label": {
-      "text": "Gulangyu, Xiamen",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "bead2d08-5ded-41e6-b583-a835bec91cbc",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "Port Name",
-    "position": {
-      "cartographicDegrees": [
-        118.08338128347667,
-        24.50414142271852,
-        0
-      ]
-    },
-    "label": {
-      "text": "Xiamen",
-      "style": "FILL",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "24693ffa-8d14-4807-af2c-5d264e39ab7a",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "PM2.5",
-    "position": {
-      "cartographicDegrees": [
-        118.07931164274738,
-        24.49956481047191,
-        -1.1406325468715177e-9
-      ]
-    },
-    "label": {
-      "text": "PM2.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "da472d75-2421-4312-8ec0-bb31be3b6b46",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "PM10",
-    "position": {
-      "cartographicDegrees": [
-        118.07930644776555,
-        24.497947240364446,
-        0
-      ]
-    },
-    "label": {
-      "text": "PM10",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "519c902e-1842-436f-81b5-ee2d93c1c1c4",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "O3",
-    "position": {
-      "cartographicDegrees": [
-        118.07829296919668,
-        24.496497800300443,
-        0
-      ]
-    },
-    "label": {
-      "text": "O3",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "d2144cd8-ba92-4084-839b-5f91037e11bc",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "NO2",
-    "position": {
-      "cartographicDegrees": [
-        118.07943360126237,
-        24.494932734335467,
-        0
-      ]
-    },
-    "label": {
-      "text": "NO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "4f15d20c-4eb9-4409-8d99-f0817330fa18",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "SO2",
-    "position": {
-      "cartographicDegrees": [
-        118.07969811512169,
-        24.492901694384642,
-        0
-      ]
-    },
-    "label": {
-      "text": "SO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "650cd81e-2a59-42bc-863b-09a94e95eb41",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "CO",
-    "position": {
-      "cartographicDegrees": [
-        118.07938151818043,
-        24.49139436815085,
-        0
-      ]
-    },
-    "label": {
-      "text": "CO",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "838d65b6-8a86-41b0-af9a-f5a477a3ee6e",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "Port Name",
-    "position": {
-      "cartographicDegrees": [
-        118.14893637258406,
-        24.497152392897668,
-        0
-      ]
-    },
-    "label": {
-      "text": "Hongwen, Xiamen",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "90fc4af0-7bd3-441f-8919-c358ebf8158c",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "PM2.5",
-    "position": {
-      "cartographicDegrees": [
-        118.14294530451676,
-        24.493605231857742,
-        0
-      ]
-    },
-    "label": {
-      "text": "PM2.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "bf7fb956-f149-45d6-94da-fda165e473f2",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "PM10",
-    "position": {
-      "cartographicDegrees": [
-        118.14308228398323,
-        24.492190808702176,
-        0
-      ]
-    },
-    "label": {
-      "text": "PM10",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "efcea12f-14e8-499c-88cf-48d308aeac95",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "O3",
-    "position": {
-      "cartographicDegrees": [
-        118.14246077797985,
-        24.490800784606016,
-        0
-      ]
-    },
-    "label": {
-      "text": "O3",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "bfe63472-5688-48a1-bffd-70b1165ef6e3",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "NO2",
-    "position": {
-      "cartographicDegrees": [
-        118.14232258762178,
-        24.48928438156815,
-        4.656612873077393e-10
-      ]
-    },
-    "label": {
-      "text": "NO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "545ba86e-ac80-43a2-bd28-9d6b5bc7cdb8",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "SO2",
-    "position": {
-      "cartographicDegrees": [
-        118.14190822558209,
-        24.487261106759124,
-        0
-      ]
-    },
-    "label": {
-      "text": "SO2",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "547bdea3-350e-4883-a8b3-d70bec914cc9",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "CO",
-    "position": {
-      "cartographicDegrees": [
-        118.14218430384977,
-        24.485744699619723,
-        0
-      ]
-    },
-    "label": {
-      "text": "CO",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "scale": "0.5",
-      "showBackground": true
-    }
-  },
-  {
-    "id": "b66cc981-5549-4e43-9af1-061bc6fe8407",
-    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "Primary Value",
-    "position": {
-      "cartographicDegrees": [
-        118.06064960562031,
-        24.471388992009864,
-        0
-      ]
-    },
-    "label": {
-      "text": "30",
-      "scale": "0.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "showBackground": true
-    }
-  },
-  {
-    "id": "c0835550-7e5c-4201-88ea-e6a3e11057cc",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "Primary Value",
-    "position": {
-      "cartographicDegrees": [
-        118.08317278412663,
-        24.505884839200625,
-        0
-      ]
-    },
-    "label": {
-      "text": "59",
-      "scale": "0.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "showBackground": true
-    }
-  },
-  {
-    "id": "72b9ebc4-6532-4b44-86c9-c742f8e68e2d",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "Primary Value",
-    "position": {
-      "cartographicDegrees": [
-        118.14560426771807,
-        24.499314736557125,
-        0
-      ]
-    },
-    "label": {
-      "text": "43",
-      "scale": "0.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "disableDepthTestDistance": 1000000000,
-      "showBackground": true
-    }
-  },
-  {
-    "id": "408920f3-9c09-45d6-b6a8-5489fccd6914",
-    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "Condition",
-    "position": {
-      "cartographicDegrees": [
-        118.1570104302423,
-        24.499698944761306,
-        0
-      ]
-    },
-    "label": {
-      "text": "Good",
-      "scale": "0.5",
-      "verticalOrigin": "CENTER",
-      "heightReference": "RELATIVE_TO_GROUND",
-      "fillColor": {
-        "rgbaf": [
-          0.06000000000000005,
-          1,
-          0.14273958333333325,
-          1
-        ]
-      },
-      "disableDepthTestDistance": 1000000000,
-      "showBackground": true
-    }
-  },
-  {
     "id": "0b74f161-fbac-4423-9611-577a57da9b9a",
     "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "Condition",
+    "name": "Port Gulangyu Condition",
     "position": {
-      "cartographicDegrees": [
-        118.07151785224886,
-        24.47109243028017,
-        4.656612873077393e-10
-      ]
+        "cartographicDegrees": [
+            118.06107460320612,
+            24.482112271000144,
+            0
+        ]
     },
     "label": {
-      "text": "Good",
+      "text": "GOOD (30)",
       "scale": "0.5",
       "verticalOrigin": "CENTER",
       "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
       "fillColor": {
         "rgbaf": [
           0.19999999999999996,
@@ -754,21 +163,53 @@
     }
   },
   {
-    "id": "1eeae60b-f7bd-4bdd-9698-9220ceaada09",
-    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "Condition",
+    "id": "2e176e1a-81d4-4269-8588-826d6ef026f6",
+    "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
+    "name": "Port Gulangyu Info",
     "position": {
       "cartographicDegrees": [
-        118.0990515715149,
-        24.50635018717636,
+        118.06047408879108,
+        24.4683414111023,
         0
       ]
     },
     "label": {
-      "text": "Moderate",
+      "text": "\nGulangyu, Xiamen\nPM2.5: 30\nPM10: 10\nO3: 11\nNO2: 3\nSO2: 5\nCO: 3\n",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
+      "disableDepthTestDistance": 1000000000,
+      "scale": "0.4",
+      "showBackground": true
+    }
+  },
+  {
+    "id": "1eeae60b-f7bd-4bdd-9698-9220ceaada09",
+    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
+    "name": "Port Xiamen Condition",
+    "position": {
+        "cartographicDegrees": [
+            118.08502675137074,
+            24.52120212976247,
+            -1.1406325468715177e-9
+        ]
+    },
+    "label": {
+      "text": "MODERATE (59)",
       "scale": "0.5",
       "verticalOrigin": "CENTER",
       "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
       "fillColor": {
         "rgbaf": [
           1,
@@ -778,6 +219,93 @@
         ]
       },
       "disableDepthTestDistance": 1000000000,
+      "showBackground": true
+    }
+  },
+  {
+    "id": "bead2d08-5ded-41e6-b583-a835bec91cbc",
+    "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
+    "name": "Port Xiamen Info",
+    "position": {
+      "cartographicDegrees": [
+        118.08338128347667,
+        24.50414142271852,
+        0
+      ]
+    },
+    "label": {
+      "text": "\nXiamen Sensor:\nPM2.5: 59\nPM10: 42\nO3: 13\nNO2: 4\nSO2: 1\nCO: 5\n",
+      "style": "FILL",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
+      "disableDepthTestDistance": 1000000000,
+      "scale": "0.4",
+      "showBackground": true
+    }
+  },
+  {
+    "id": "408920f3-9c09-45d6-b6a8-5489fccd6914",
+    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
+    "name": "Port Hongwen Condition",
+    "position": {
+        "cartographicDegrees": [
+            118.15400901988883,
+            24.51310631267099,
+            -1.1406325468715177e-9
+        ]
+    },
+    "label": {
+      "text": "GOOD (43)",
+      "scale": "0.5",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
+      "fillColor": {
+        "rgbaf": [
+          0.06000000000000005,
+          1,
+          0.14273958333333325,
+          1
+        ]
+      },
+      "disableDepthTestDistance": 1000000000,
+      "showBackground": true
+    }
+  },
+  {
+    "id": "838d65b6-8a86-41b0-af9a-f5a477a3ee6e",
+    "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
+    "name": "Port Hongwen Info",
+    "position": {
+      "cartographicDegrees": [
+        118.14893637258406,
+        24.497152392897668,
+        0
+      ]
+    },
+    "label": {
+      "text": "\nHongwen, Xiamen\nPM2.5: 43\nPM10: 34\nO2: 11\nNO2: 5\nSO2: 3\nCO: 4\n",
+      "verticalOrigin": "CENTER",
+      "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
+      "disableDepthTestDistance": 1000000000,
+      "scale": "0.4",
       "showBackground": true
     }
   },
@@ -13186,6 +12714,12 @@
       "horizontalOrigin": "CENTER",
       "verticalOrigin": "CENTER",
       "heightReference": "RELATIVE_TO_GROUND",
+      "distanceDisplayCondition": {
+          "distanceDisplayCondition": [
+              200,
+              45000
+          ]
+      },
       "fillColor": {
         "rgbaf": [
           0.25,
