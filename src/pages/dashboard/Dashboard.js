@@ -96,28 +96,11 @@ export function Dashboard() {
   }
 
   function getPort(item, dataSet) {
-    switch (item.parent) {
-      case "3393649e-7b0b-4d38-a3db-f60a83e0e7fc":
-        if (dataSet["Xiamen"]){
-          return dataSet["Xiamen"];
-        }
-        break;
-      case "2ba68fae-48e7-4c04-9aae-dee6bf0db091":
-        if (dataSet["Hongwen"]){
-          return dataSet["Hongwen"];
-        }
-        break;
-      case "34edb0f3-6457-4a1e-a9a3-e9c5620a8294":
-        if (dataSet["Gulangyu"]){
-          return dataSet["Gulangyu"];
-        }
-        break;
-      default:
-        return undefined;
-    }
+    const data = dataSet[getPortName(item)];
+    return data;
   }
 
-  function getPortName(item, dataSet) {
+  function getPortName(item) {
     switch (item.parent) {
       case "3393649e-7b0b-4d38-a3db-f60a83e0e7fc":
         return "Xiamen";
@@ -193,21 +176,22 @@ export function Dashboard() {
                   bulkCarrierCount = shipData["Carrier Count"]["Bulk Carrier"];
                   generalCargoCount = shipData["Carrier Count"]["General Cargo"];
                   containerShipCount = shipData["Carrier Count"]["Container Ship"];
-                } else {
+                  teuValue = numberWithCommas(shipData["TEU"]);
+                  totalRevenue = `$${numberWithCommas(shipData["Total Revenue"])}`;
+                  shipCount = `${numberWithCommas(bulkCarrierCount + containerShipCount + generalCargoCount)} Ships`;
 
+                  const valuePerTEUText = `TEU Value: $500`;
+                  const shipCountText = `Ship Count: ${shipCount}`;
+                  const teuCapacityText = `TEU Capacity: ${teuValue}`;
+                  const totalRevenueText = `Total Revenue: ${totalRevenue}`;
+
+                  // "\nShip count: 25 ships\nTEU Capacity: 1028\nTEU Value: $500\nRevenue: $514,000\n",
+                  item.label.text = `\n${shipCountText}\n${teuCapacityText}\n${valuePerTEUText}\n${totalRevenueText}\n`;
+                } else {
+                  item.label.show = false;
                 }
 
-                teuValue = numberWithCommas(shipData["TEU"]);
-                totalRevenue = `$${numberWithCommas(shipData["Total Revenue"])}`;
-                shipCount = `${numberWithCommas(bulkCarrierCount + containerShipCount + generalCargoCount)} Ships`;
-
-                const valuePerTEUText = `TEU Value: $500`;
-                const shipCountText = `Ship Count: ${shipCount}`;
-                const teuCapacityText = `TEU Capacity: ${teuValue}`;
-                const totalRevenueText = `Total Revenue: ${totalRevenue}`;
-
-                // "\nShip count: 25 ships\nTEU Capacity: 1028\nTEU Value: $500\nRevenue: $514,000\n",
-                item.label.text = `\n${shipCountText}\n${teuCapacityText}\n${valuePerTEUText}\n${totalRevenueText}\n`;
+                
                 break;
 
               case "Gulangyu Sensor Air Quality":
@@ -226,16 +210,18 @@ export function Dashboard() {
                   const port = getPort(item, aqData);
                   
                   if (port) {
-                    sensorName = getPortName(item, aqData);
+                    sensorName = getPortName(item);
                     pm25 = port["PM2.5"];
                     pm10 = port["PM10"];
                     o3 = port["O3"];
                     so2 = port["SO2"];
                     co = port["CO"];
+                  } else {
+                    item.label.show = false;
                   }
 
                 } else {
-
+                  item.label.show = false;
                 }
 
                 const pm25Text = `PM2.5: ${pm25}`;
@@ -245,7 +231,7 @@ export function Dashboard() {
                 const coText = `CO: ${co}`;
 
                 // "\nGulangyu, Xiamen\nPM2.5: 30\nPM10: 10\nO3: 11\nNO2: 3\nSO2: 5\nCO: 3\n",
-                item.label.text = `\n${sensorName}\n${pm25Text}\n${pm10Text}\n${o3Text}\n${so2Text}\n${coText}\n`
+                item.label.text = `\n${sensorName}\n-----\n${pm25Text}\n${pm10Text}\n${o3Text}\n${so2Text}\n${coText}\n`
 
                 break;
               
@@ -267,27 +253,30 @@ export function Dashboard() {
 
                     switch (condition) {
 
-                      case "Good":
+                      case "GOOD":
                         conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
                         break;
 
-                      case "Moderate":
+                      case "MODERATE":
                         conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
                         break;
 
-                      case "Unhealthy":
+                      case "UNHEALTHY":
                         conditionColor = [1,0,0,1];
                         break;
 
                     }
 
                     item.label.fillColor.rgbaf = conditionColor;
+                    item.label.text = `${condition} (${pm25})`;
+                  } else{
+                    item.label.show = false;
                   }
                 } else {
-
+                  item.label.show = false;
                 }
 
-                item.label.text = `${condition} (${pm25})`;
+                
 
                 break;
 
@@ -295,18 +284,14 @@ export function Dashboard() {
                 var powerOutput = "TBD"
                 if (electricData) {
                   powerOutput = `${electricData.toFixed(2)}MW`;
+                  item.label.text = `Power Output of Port: ${powerOutput}`;
                 } else {
-
+                  item.label.show = false;
                 }
-                item.label.text = `Power Output of Port: ${powerOutput}`;
+                
                 break;
                           
               default:
-                /*
-                if (item.name.includes("Condition")) {
-                  
-                }
-                */
                 break;
                 
             }
