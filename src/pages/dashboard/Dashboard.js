@@ -144,6 +144,7 @@ export function Dashboard() {
 
   const loadCZMLFile = async () => {
 
+    console.log("Test");
     const inputDate = document.getElementById("dateInput");
 
     if (inputDate.value) {
@@ -247,6 +248,49 @@ export function Dashboard() {
                 item.label.text = `\n${sensorName}\n${pm25Text}\n${pm10Text}\n${o3Text}\n${so2Text}\n${coText}\n`
 
                 break;
+              
+              case "Port Gulangyu Condition":
+              case "Port Xiamen Condition":
+              case "Port Hongwen Condition":
+                var condition = "TBD";
+                var pm25 = "TBD";
+                if (aqData) {
+
+                  const port = getPort(item, aqData);
+
+                  if (port) {
+
+                    condition = port["Condition"].toUpperCase();
+                    pm25 = port["PM2.5"];
+
+                    var conditionColor;
+
+                    switch (condition) {
+
+                      case "Good":
+                        conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
+                        break;
+
+                      case "Moderate":
+                        conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
+                        break;
+
+                      case "Unhealthy":
+                        conditionColor = [1,0,0,1];
+                        break;
+
+                    }
+
+                    item.label.fillColor.rgbaf = conditionColor;
+                  }
+                } else {
+
+                }
+
+                item.label.text = `${condition} (${pm25})`;
+
+                break;
+
               case "Power Output":
                 var powerOutput = "TBD"
                 if (electricData) {
@@ -260,43 +304,10 @@ export function Dashboard() {
               default:
                 /*
                 if (item.name.includes("Condition")) {
-                  var condition = "TBD";
-
-                  if (aqData) {
-                    const port = getPort(item, aqData);
-  
-                    if (port) {
-                      condition = port[item.name];
-  
-                      var conditionColor;
-  
-                      switch (condition) {
-  
-                        case "Good":
-                          conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
-                          break;
-  
-                        case "Moderate":
-                          conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
-                          break;
-  
-                        case "Unhealthy":
-                          conditionColor = [1,0,0,1];
-                          break;
-  
-                      }
-  
-                      item.label.fillColor.rgbaf = conditionColor;
-                    }
-                  } else {
-  
-                  }
-  
-                  item.label.text = condition;
-  
-                  break;
+                  
                 }
                 */
+                break;
                 
             }
           }
