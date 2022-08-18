@@ -1,12 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import { CzmlDataSource, Viewer } from "resium";
 import { useNavigate } from "react-router-dom";
+
 import { useCookies } from 'react-cookie';
 
 const styles = {
   logoutBtn: {
     position: "absolute",
     left: "2vh",
+    top: "2vh",
+    zIndex: "900000",
+    textTransform: "uppercase",
+    fontSize: "0.8rem",
+    border: "none",
+    padding: "0.3rem 0.5rem",
+    fontWeight: "bold",
+    boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
+  },
+  loadVizBtn: {
+    position: "absolute",
+    left: "12vh",
     top: "2vh",
     zIndex: "900000",
     textTransform: "uppercase",
@@ -69,6 +82,10 @@ export function Dashboard() {
     navigate("/");
   }
 
+  function loadViz() {
+    navigate("/viz");
+  }
+
   function getFormattedDate(dateValue) {
     const dateFormat = new Date(dateValue);
     return `${dateFormat.getMonth()+1}/${dateFormat.getDate()}/${dateFormat.getFullYear()}`;
@@ -95,6 +112,19 @@ export function Dashboard() {
           return dataSet["Gulangyu"];
         }
         break;
+      default:
+        return undefined;
+    }
+  }
+
+  function getPortName(item, dataSet) {
+    switch (item.parent) {
+      case "3393649e-7b0b-4d38-a3db-f60a83e0e7fc":
+        return "Xiamen";
+      case "2ba68fae-48e7-4c04-9aae-dee6bf0db091":
+        return "Hongwen, Xiamen";
+      case "34edb0f3-6457-4a1e-a9a3-e9c5620a8294":
+        return "Gulangyu, Xiamen";
       default:
         return undefined;
     }
@@ -133,7 +163,6 @@ export function Dashboard() {
 
           if (!shipData) {
             console.log("Financial/Ship Data Generated");
-
           }
 
           if (!aqData) {
@@ -150,91 +179,74 @@ export function Dashboard() {
 
             switch (item.name) {
 
-              case "Border":
-                break;
+              case "Financial/Ship Information":
 
-              case "Date":
-                item.label.text = `Date: ${date}`;
-                break;
-
-              case "Ship Count":
-                var shipCount = "TBD";
+                var teuValue = 0;
+                var shipCount = 0;
+                var totalRevenue = 0;
+                var bulkCarrierCount = 0;
+                var generalCargoCount = 0;
+                var containerShipCount = 0;
 
                 if (shipData) {
-                  const bulkCarrierCount = shipData["Carrier Count"]["Bulk Carrier"];
-                  const generalCargoCount = shipData["Carrier Count"]["General Cargo"];
-                  const containerShipCount = shipData["Carrier Count"]["Container Ship"];
-
-                  shipCount = `${numberWithCommas(bulkCarrierCount + containerShipCount + generalCargoCount)} Ships`;
+                  bulkCarrierCount = shipData["Carrier Count"]["Bulk Carrier"];
+                  generalCargoCount = shipData["Carrier Count"]["General Cargo"];
+                  containerShipCount = shipData["Carrier Count"]["Container Ship"];
                 } else {
 
                 }
 
-                item.label.text = `Ship Count: ${shipCount}`;
+                teuValue = numberWithCommas(shipData["TEU"]);
+                totalRevenue = `$${numberWithCommas(shipData["Total Revenue"])}`;
+                shipCount = `${numberWithCommas(bulkCarrierCount + containerShipCount + generalCargoCount)} Ships`;
+
+                const valuePerTEUText = `TEU Value: $500`;
+                const shipCountText = `Ship Count: ${shipCount}`;
+                const teuCapacityText = `TEU Capacity: ${teuValue}`;
+                const totalRevenueText = `Total Revenue: ${totalRevenue}`;
+
+                // "\nShip count: 25 ships\nTEU Capacity: 1028\nTEU Value: $500\nRevenue: $514,000\n",
+                item.label.text = `\n${shipCountText}\n${teuCapacityText}\n${valuePerTEUText}\n${totalRevenueText}\n`;
                 break;
 
-              case "TEU Capacity":
-                var teuValue = "TBD"
-                if (shipData) {
-                  teuValue = numberWithCommas(shipData["TEU"]);
-                } else {
-                  
-                }
+              case "Gulangyu Sensor Air Quality":
+              case "Xiamen Sensor Air Quality":
+              case "Hongwen Sensor Air Quality":
 
-                item.label.text = `TEU Capacity: ${teuValue}`;
-                break;
-
-              case "Total Revenue":
-                var totalRevenue = "TBD";
-                if (shipData) {
-                  totalRevenue = `$${numberWithCommas(shipData["Total Revenue"])}`;
-                } else {
-
-                }
-
-                item.label.text = `Total Revenue: ${totalRevenue}`;
-                break;
-
-              case "Value Per TEU":
-                // item.label.text = `Value Per TEU: TBD`
-                break;
-
-              case "Condition":
-                var condition = "TBD";
+                var sensorName = "TBD";
+                var pm25 = "TBD";
+                var pm10 = "TBD";
+                var o3 = "TBD";
+                var so2 = "TBD";
+                var co = "TBD";
 
                 if (aqData) {
+
                   const port = getPort(item, aqData);
-
+                  
                   if (port) {
-                    condition = port[item.name];
-
-                    var conditionColor;
-
-                    switch (condition) {
-
-                      case "Good":
-                        conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
-                        break;
-
-                      case "Moderate":
-                        conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
-                        break;
-
-                      case "Unhealthy":
-                        conditionColor = [1,0,0,1];
-                        break;
-
-                    }
-
-                    item.label.fillColor.rgbaf = conditionColor;
+                    sensorName = getPortName(item, aqData);
+                    pm25 = port["PM2.5"];
+                    pm10 = port["PM10"];
+                    o3 = port["O3"];
+                    so2 = port["SO2"];
+                    co = port["CO"];
                   }
+
                 } else {
 
                 }
 
-                item.label.text = condition;
-                break;
+                const pm25Text = `PM2.5: ${pm25}`;
+                const pm10Text = `PM10: ${pm10}`;
+                const o3Text = `O3: ${o3}`;
+                const so2Text = `SO2: ${so2}`;
+                const coText = `CO: ${co}`;
 
+                // "\nGulangyu, Xiamen\nPM2.5: 30\nPM10: 10\nO3: 11\nNO2: 3\nSO2: 5\nCO: 3\n",
+                item.label.text = `\n${sensorName}\n${pm25Text}\n${pm10Text}\n${o3Text}\n${so2Text}\n${coText}\n`
+
+                break;
               case "Power Output":
                 var powerOutput = "TBD"
                 if (electricData) {
@@ -244,30 +256,48 @@ export function Dashboard() {
                 }
                 item.label.text = `Power Output of Port: ${powerOutput}`;
                 break;
-              case "CO": case "PM2.5": case "PM10": 
-              case "NO2": case "SO2": case "O3": case "Primary Value":
-
-                var airMetric = "TBD";
-
-                if (aqData) {
-                  const port = getPort(item, aqData);
-                  // console.log(port);
-                  if (port) {
-                    airMetric = port[item.name];
-                  }
-                } else {
-
-                }
-
-                if (item.name !== "Primary Value") {
-                  item.label.text = `${item.name}: ${airMetric}`
-                } else {
-                  item.label.text = airMetric
-                }
-                break;   
-            
+                          
               default:
-                break;
+                /*
+                if (item.name.includes("Condition")) {
+                  var condition = "TBD";
+
+                  if (aqData) {
+                    const port = getPort(item, aqData);
+  
+                    if (port) {
+                      condition = port[item.name];
+  
+                      var conditionColor;
+  
+                      switch (condition) {
+  
+                        case "Good":
+                          conditionColor = [0.19999999999999996, 1, 0.2970833333333335, 1];
+                          break;
+  
+                        case "Moderate":
+                          conditionColor = [1,0.6554322916666666,0.08999999999999997,1];
+                          break;
+  
+                        case "Unhealthy":
+                          conditionColor = [1,0,0,1];
+                          break;
+  
+                      }
+  
+                      item.label.fillColor.rgbaf = conditionColor;
+                    }
+                  } else {
+  
+                  }
+  
+                  item.label.text = condition;
+  
+                  break;
+                }
+                */
+                
             }
           }
           setCZMLData(jsonResponse);
@@ -285,11 +315,13 @@ export function Dashboard() {
   return(
     <div>
       <button style={styles.logoutBtn} onClick={logout}>Logout</button>
+      <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
       <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
       <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
       <div className="resium-wrapper">
         <Viewer full>
           <CzmlDataSource data={czmlData}/>
+          
         </Viewer>
       </div>
     </div>

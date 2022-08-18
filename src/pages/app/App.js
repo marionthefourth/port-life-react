@@ -1,9 +1,10 @@
 import React from "react";
-import { Route, Routes, } from 'react-router-dom';
-import { CookiesProvider } from 'react-cookie';
-import { Dashboard } from '../dashboard/Dashboard';
 import Login from '../login/Login';
 import { useCookies } from 'react-cookie';
+import { CookiesProvider } from 'react-cookie';
+import { Route, Routes, } from 'react-router-dom';
+import { Dashboard } from '../dashboard/Dashboard';
+import { MetricViewer } from "../visualizations/metric-viewer/MetricViewer";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['userAuthorized']);
@@ -13,6 +14,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Login />}/>
             <Route path="/demo" element={<Dashboard/>}/>
+            <Route path="/viz" element={<MetricViewer/>}/>
           </Routes>
       </CookiesProvider>
     )
@@ -24,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />}/>
             <Route path="/demo" element={<Login/>}/>
+            <Route path="/viz" element={<MetricViewer/>}/>
           </Routes>
       </CookiesProvider>
     </>
