@@ -9,7 +9,7 @@
   },
   {
     "id": "758c944f-3278-4f5c-b141-ec88263f2e63",
-    "name": "Information",
+    "name": "Financial/Ship Information",
     "position": {
       "cartographicDegrees": [
         118.0046072560251,
@@ -165,7 +165,7 @@
   {
     "id": "2e176e1a-81d4-4269-8588-826d6ef026f6",
     "parent": "34edb0f3-6457-4a1e-a9a3-e9c5620a8294",
-    "name": "Port Gulangyu Info",
+    "name": "Gulangyu Sensor Air Quality",
     "position": {
       "cartographicDegrees": [
         118.06047408879108,
@@ -225,7 +225,7 @@
   {
     "id": "bead2d08-5ded-41e6-b583-a835bec91cbc",
     "parent": "3393649e-7b0b-4d38-a3db-f60a83e0e7fc",
-    "name": "Port Xiamen Info",
+    "name": "Xiamen Sensor Air Quality",
     "position": {
       "cartographicDegrees": [
         118.08338128347667,
@@ -286,7 +286,7 @@
   {
     "id": "838d65b6-8a86-41b0-af9a-f5a477a3ee6e",
     "parent": "2ba68fae-48e7-4c04-9aae-dee6bf0db091",
-    "name": "Port Hongwen Info",
+    "name": "Hongwen Sensor Air Quality",
     "position": {
       "cartographicDegrees": [
         118.14893637258406,
