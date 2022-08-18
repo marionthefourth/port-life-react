@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie';
 const styles = {
   logoutBtn: {
     position: "absolute",
-    left: "2vh",
+    left: "57vh",
     top: "2vh",
     zIndex: "900000",
     textTransform: "uppercase",
@@ -19,7 +19,7 @@ const styles = {
   },
   loadVizBtn: {
     position: "absolute",
-    left: "12vh",
+    left: "2vh",
     top: "2vh",
     zIndex: "900000",
     textTransform: "uppercase",
@@ -31,8 +31,8 @@ const styles = {
   },
   dateInpt: {
     position: "absolute",
-    left: "2vh",
-    top: "8vh",
+    left: "24vh",
+    top: "2vh",
     zIndex: "900000",
     fontSize: "0.8rem",
     border: "none",
@@ -42,8 +42,8 @@ const styles = {
   },
   loadCZMLBtn: {
     position: "absolute",
-    left: "30vh",
-    top: "8vh",
+    left: "44vh",
+    top: "2vh",
     zIndex: "900000",
     textTransform: "uppercase",
     fontSize: "0.8rem",
@@ -310,10 +310,12 @@ export function Dashboard() {
 
   return(
     <div>
-      <button style={styles.logoutBtn} onClick={logout}>Logout</button>
-      <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
-      <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
-      <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
+      <div className="button wrapper">
+        <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
+        <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
+        <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
+        <button style={styles.logoutBtn} onClick={logout}>Logout</button>
+      </div>
       <div className="resium-wrapper">
         <Viewer full>
           <CzmlDataSource data={czmlData}/>
