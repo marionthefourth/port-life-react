@@ -15,6 +15,16 @@ const styles = {
       fontWeight: "bold",
       boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
     },
+    btn: {
+      fontSize: "0.8rem",
+      border: "none",
+      padding: "0.3rem 0.5rem",
+      marginTop: "2vh",
+      marginLeft: "2vh",
+      fontWeight: "bold",
+      boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)",
+      textTransform: "uppercase",
+    }
   };
 
 export function MetricViewer() {
@@ -471,14 +481,14 @@ export function MetricViewer() {
       
     return (
         <div className="app">
-            <button style={styles.logoutBtn} onClick={returnToMap}>Return To Map</button>
-            <button style={styles.logoutBtn} onClick={togglePrimary}>{primaryText}</button>
+            <button style={styles.btn} onClick={returnToMap}>RETURN TO MAP</button>
+            <button style={styles.btn} onClick={togglePrimary}>{primaryText}</button>
             {
                 primaryHasFeature == true && 
-                <button style={styles.logoutBtn} onClick={togglePrimaryFeature}>{primaryFeatureText}</button>
+                <button style={styles.btn} onClick={togglePrimaryFeature}>{primaryFeatureText}</button>
             }
             
-            <button style={styles.logoutBtn} onClick={toggleScale}>{scaleText}</button>
+            <button style={styles.btn} onClick={toggleScale}>{scaleText}</button>
             <div className="row">
                 <div className="mixed-chart">
                     <p className="ChartTitle">{chartTitle}</p>
