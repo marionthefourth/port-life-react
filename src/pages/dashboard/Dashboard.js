@@ -83,7 +83,7 @@ const styles = {
   },
   p: {
     lineHeight: "1rem"
-  }
+  },
 };
 
 export function Dashboard() {
@@ -362,10 +362,18 @@ export function Dashboard() {
                 <p style={styles.p}>red is 220-kV</p>
                 <p style={styles.p}>green is 110-k</p>
                 <h2>Air Quality</h2>
-                <p style={styles.p}>The overall number on top, represents the overall PM2.5, which is usually the main indicator if the air quality is bad. 0-50 is good, 50-100 is moderate, 100-150 is unhealthy, 200-300 very unhealthy, 300+ is hazardous. PM10, has a negative relationship with air quality, as PM10 increases in the air, air quality worsens. PM10 are inhalable particles which are 10 micrometers and smaller.O3 is ozone, which is a highly reactive gas, theres good ozone which is high in the atmosphere and ground ozone which is bad as it's closer to the earth in the air we breathe. NO2 is nitrogen dioxide, this is formed by burning fuel, and also negatively affects the air quality. It helps contribute to the PM2.5, PM10, and chemicals that make ozone.SO2 is sulfur dioxide, short term exposes to SO2 can harm the human respiratory system and make breathing difficult. This also negatively affects the air as it leads to the formation of secondary pollutants.CO is carbon monoxide. CO affects the air negatively as it reduces the amount of oxygen that can be transmitted in the blood stream. This pollution occurs from emissions of fossil fueled engines.</p>
+                <ul>
+                    <li>The overall number on top, represents the overall PM2.5, which is usually the main indicator if the air quality is bad. 0-50 is good, 50-100 is moderate, 100-150 is unhealthy, 200-300 very unhealthy, 300+ is hazardous.</li>
+                    <li>PM10, has a negative relationship with air quality, as PM10 increases in the air, air quality worsens. PM10 are inhalable particles which are 10 micrometers and smaller.O3 is ozone, which is a highly reactive gas, theres good ozone which is high in the atmosphere and ground ozone which is bad as it's closer to the earth in the air we breathe. </li>
+                    <li>NO2 is nitrogen dioxide, this is formed by burning fuel, and also negatively affects the air quality. It helps contribute to the PM2.5, PM10, and chemicals that make ozone.</li>
+                    <li>SO2 is sulfur dioxide, short term exposes to SO2 can harm the human respiratory system and make breathing difficult. This also negatively affects the air as it leads to the formation of secondary pollutants.</li>
+                    <li>CO is carbon monoxide. CO affects the air negatively as it reduces the amount of oxygen that can be transmitted in the blood stream. This pollution occurs from emissions of fossil fueled engines.</li>
+                </ul>
                 <h2>Financial/Ship Data</h2>
-                <p style={styles.p}>The daily revenue was estimated by taking the ship’s TEU capacity, which is the maximum amount of containers that given ship can carry, and multiplying it by the ships fees.</p>
-                <p style={styles.p}>The ships fees are based off of the $500 Terminal Handling Charge, a charge that the port puts on every container coming into the port.</p>
+                <ul>
+                    <li>The daily revenue was estimated by taking the ship’s TEU capacity, which is the maximum amount of containers that given ship can carry, and multiplying it by the ships fees.</li>
+                    <li>The ships fees are based off of the $500 Terminal Handling Charge, a charge that the port puts on every container coming into the port.</li>
+                </ul>
             </div>
         }
         <div className="resium-wrapper">
