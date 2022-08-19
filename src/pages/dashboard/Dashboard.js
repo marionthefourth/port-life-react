@@ -3,7 +3,6 @@ import { CzmlDataSource, Viewer } from "resium";
 import { useNavigate } from "react-router-dom";
 
 import { useCookies } from 'react-cookie';
-import { readdir } from 'fs';
 
 const styles = {
   logoutBtn: {
@@ -351,16 +350,18 @@ export function Dashboard() {
             <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
             <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
             <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
-            <button style={styles.moreInfoBtn} onClick={() => setInfoPanel(prevInfoPanel => !prevInfoPanel)}>More Info</button>
+            <button style={styles.moreInfoBtn} onClick={() => setInfoPanel(prevInfoPanel => !prevInfoPanel)}>{!infoPanel ? "More Info":"Hide Info"}</button>
             <button style={styles.logoutBtn} onClick={logout}>Logout</button>
         </div>
         { infoPanel && 
             <div style={styles.moreInformationBlock}>
                 <h2>Power Output Information</h2>
-                <p style={styles.p}>MW is mega-watts</p>
-                <p style={styles.p}>purple is 500-kV</p>
-                <p style={styles.p}>red is 220-kV</p>
-                <p style={styles.p}>green is 110-k</p>
+                <ul>
+                  <li>MW is mega-watts</li>
+                  <li>Purple power lines are 500-kV</li>
+                  <li>Red power lines are 220-kV</li>
+                  <li>Green power lines are 110-k</li>
+                </ul>
                 <h2>Air Quality</h2>
                 <ul>
                     <li>The overall number on top, represents the overall PM2.5, which is usually the main indicator if the air quality is bad. 0-50 is good, 50-100 is moderate, 100-150 is unhealthy, 200-300 very unhealthy, 300+ is hazardous.</li>
