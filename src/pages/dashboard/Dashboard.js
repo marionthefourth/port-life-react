@@ -3,12 +3,12 @@ import { CzmlDataSource, Viewer } from "resium";
 import { useNavigate } from "react-router-dom";
 
 import { useCookies } from 'react-cookie';
+import { readdir } from 'fs';
 
 const styles = {
   logoutBtn: {
-    position: "absolute",
-    left: "2vh",
-    top: "2vh",
+    position: "relative",
+    left: "20px",
     zIndex: "900000",
     textTransform: "uppercase",
     fontSize: "0.8rem",
@@ -18,9 +18,7 @@ const styles = {
     boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
   },
   loadVizBtn: {
-    position: "absolute",
-    left: "12vh",
-    top: "2vh",
+    position: "relative",
     zIndex: "900000",
     textTransform: "uppercase",
     fontSize: "0.8rem",
@@ -30,9 +28,8 @@ const styles = {
     boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
   },
   dateInpt: {
-    position: "absolute",
-    left: "2vh",
-    top: "8vh",
+    position: "relative",
+    left: "10px",
     zIndex: "900000",
     fontSize: "0.8rem",
     border: "none",
@@ -41,9 +38,8 @@ const styles = {
     boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
   },
   loadCZMLBtn: {
-    position: "absolute",
-    left: "30vh",
-    top: "8vh",
+    position: "relative",
+    left: "1px",
     zIndex: "900000",
     textTransform: "uppercase",
     fontSize: "0.8rem",
@@ -51,18 +47,58 @@ const styles = {
     padding: "0.3rem 0.5rem",
     fontWeight: "bold",
     boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
-  }
+  },
+  moreInfoBtn: {
+    position: "relative",
+    left: "10px",
+    zIndex: "900000",
+    textTransform: "uppercase",
+    fontSize: "0.8rem",
+    border: "none",
+    padding: "0.3rem 0.5rem",
+    fontWeight: "bold",
+    boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
+  },
+  btnWrapper: {
+    position: "absolute",
+    left: "2vh",
+    top: "2vh",
+  },
+  moreInformationBlock: {
+    position: "absolute",
+    left: "0", 
+    right: "0",
+    top: "15vh",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "90vh",
+    height: "70vh",
+    overflowY: "scroll",
+    background: "rgba(47,79,79, 0.9)",
+    zIndex: "900001",
+    fontSize: "0.9rem",
+    border: "none",
+    padding: "0.3rem 0.5rem",
+    boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.2)"
+  },
+  p: {
+    lineHeight: "1rem"
+  },
 };
 
 export function Dashboard() {
   const [cookies, setCookie, removeCookie] = useCookies(['userAuthorized']);
   const [czmlData, setCZMLData] = useState([]);
   const [csvData, setCSVData] = useState({});
+  const [infoPanel, setInfoPanel] = useState(false);
 
   const navigate = useNavigate();
 
   const coreFile =  require("../../czml/port-life.czml");
   const coreJSON = require("../../json/dataset.json");
+  const purpleLine = require("../../img/purpleLine.png");
+  const redLine = require("../../img/redLine.png");
+  const greenLine = require("../../img/greenLine.png");
 
   function loadCSVData() {
     const url = "https://raw.githubusercontent.com/marionthefourth/port-life-react/merging-and-displaying-czml/src/json/dataset.json";
@@ -310,16 +346,41 @@ export function Dashboard() {
 
   return(
     <div>
-      <button style={styles.logoutBtn} onClick={logout}>Logout</button>
-      <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
-      <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
-      <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
-      <div className="resium-wrapper">
-        <Viewer full>
-          <CzmlDataSource data={czmlData}/>
-          
-        </Viewer>
-      </div>
+        <div style={styles.btnWrapper}>
+            <button style={styles.loadVizBtn} onClick={loadViz}>Display Data Charts</button>
+            <input style={styles.dateInpt} id="dateInput" placeholder='Example Date: 7/9/2022'/>
+            <button style={styles.loadCZMLBtn} onClick={loadCZMLFile}>Load CZML</button>
+            <button style={styles.moreInfoBtn} onClick={() => setInfoPanel(prevInfoPanel => !prevInfoPanel)}>More Info</button>
+            <button style={styles.logoutBtn} onClick={logout}>Logout</button>
+        </div>
+        { infoPanel && 
+            <div style={styles.moreInformationBlock}>
+                <h2>Power Lines Output</h2>
+                <p style={styles.p}>MW is mega-watts</p>
+                <p style={styles.p}><img src={purpleLine} width="18px" /> is 500-kV</p>
+                <p style={styles.p}><img src={redLine} width="18px" />  is 220-kV</p>
+                <p style={styles.p}><img src={greenLine} width="18px" />  is 110-k</p>
+                <h2>Air Quality</h2>
+                <ul>
+                    <li>The overall number on top, represents the overall PM2.5, which is usually the main indicator if the air quality is bad. 0-50 is good, 50-100 is moderate, 100-150 is unhealthy, 200-300 very unhealthy, 300+ is hazardous.</li>
+                    <li>PM10, has a negative relationship with air quality, as PM10 increases in the air, air quality worsens. PM10 are inhalable particles which are 10 micrometers and smaller.O3 is ozone, which is a highly reactive gas, theres good ozone which is high in the atmosphere and ground ozone which is bad as it's closer to the earth in the air we breathe. </li>
+                    <li>NO2 is nitrogen dioxide, this is formed by burning fuel, and also negatively affects the air quality. It helps contribute to the PM2.5, PM10, and chemicals that make ozone.</li>
+                    <li>SO2 is sulfur dioxide, short term exposes to SO2 can harm the human respiratory system and make breathing difficult. This also negatively affects the air as it leads to the formation of secondary pollutants.</li>
+                    <li>CO is carbon monoxide. CO affects the air negatively as it reduces the amount of oxygen that can be transmitted in the blood stream. This pollution occurs from emissions of fossil fueled engines.</li>
+                </ul>
+                <h2>Financial/Ship Data</h2>
+                <ul>
+                    <li>The daily revenue was estimated by taking the ship’s TEU capacity, which is the maximum amount of containers that given ship can carry, and multiplying it by the ships fees.</li>
+                    <li>The ships fees are based off of the $500 Terminal Handling Charge, a charge that the port puts on every container coming into the port.</li>
+                </ul>
+                <br />
+            </div>
+        }
+        <div className="resium-wrapper">
+            <Viewer full>
+                <CzmlDataSource data={czmlData}/>
+            </Viewer>
+        </div>
     </div>
   );
 }

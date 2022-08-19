@@ -15,6 +15,16 @@ const styles = {
       fontWeight: "bold",
       boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)"
     },
+    btn: {
+      fontSize: "0.8rem",
+      border: "none",
+      padding: "0.3rem 0.5rem",
+      marginTop: "2vh",
+      marginLeft: "2vh",
+      fontWeight: "bold",
+      boxShadow: "3px 5px 8px rgba(0, 0, 0, 0.4)",
+      textTransform: "uppercase",
+    }
   };
 
 export function MetricViewer() {
@@ -633,17 +643,17 @@ export function MetricViewer() {
     return (
         <div className="MetricViewer">
             <span className="MetricViewer">
-                <button style={styles.logoutBtn} onClick={returnToMap}>Return To Map</button>
+                <button style={styles.btn} onClick={returnToMap}>Return To Map</button>
             </span>
             <br/>
             <span>
-                <button style={styles.logoutBtn} onClick={togglePrimary}>{primaryText}</button>
+                <button style={styles.btn} onClick={togglePrimary}>{primaryText}</button>
                 {
                     primaryHasFeature === true && 
-                    <button style={styles.logoutBtn} onClick={togglePrimaryFeature}>{primaryFeatureText}</button>
+                    <button style={styles.btn} onClick={togglePrimaryFeature}>{primaryFeatureText}</button>
                 }
-                <button style={styles.logoutBtn} onClick={toggleYearFilter}>{filterYearText}</button>
-                <button style={styles.logoutBtn} onClick={toggleScale}>{scaleText}</button>
+                <button style={styles.btn} onClick={toggleYearFilter}>{filterYearText}</button>
+                <button style={styles.btn} onClick={toggleScale}>{scaleText}</button>
             </span>
             <br/>
             <div className="row">
