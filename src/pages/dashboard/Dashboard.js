@@ -96,6 +96,9 @@ export function Dashboard() {
 
   const coreFile =  require("../../czml/port-life.czml");
   const coreJSON = require("../../json/dataset.json");
+  const purpleLine = require("../../img/purpleLine.png");
+  const redLine = require("../../img/redLine.png");
+  const greenLine = require("../../img/greenLine.png");
 
   function loadCSVData() {
     const url = "https://raw.githubusercontent.com/marionthefourth/port-life-react/merging-and-displaying-czml/src/json/dataset.json";
@@ -352,11 +355,11 @@ export function Dashboard() {
         </div>
         { infoPanel && 
             <div style={styles.moreInformationBlock}>
-                <h2>Power Output Information</h2>
+                <h2>Power Lines Output</h2>
                 <p style={styles.p}>MW is mega-watts</p>
-                <p style={styles.p}>purple is 500-kV</p>
-                <p style={styles.p}>red is 220-kV</p>
-                <p style={styles.p}>green is 110-k</p>
+                <p style={styles.p}><img src={purpleLine} width="18px" /> is 500-kV</p>
+                <p style={styles.p}><img src={redLine} width="18px" />  is 220-kV</p>
+                <p style={styles.p}><img src={greenLine} width="18px" />  is 110-k</p>
                 <h2>Air Quality</h2>
                 <ul>
                     <li>The overall number on top, represents the overall PM2.5, which is usually the main indicator if the air quality is bad. 0-50 is good, 50-100 is moderate, 100-150 is unhealthy, 200-300 very unhealthy, 300+ is hazardous.</li>
@@ -370,6 +373,7 @@ export function Dashboard() {
                     <li>The daily revenue was estimated by taking the ship’s TEU capacity, which is the maximum amount of containers that given ship can carry, and multiplying it by the ships fees.</li>
                     <li>The ships fees are based off of the $500 Terminal Handling Charge, a charge that the port puts on every container coming into the port.</li>
                 </ul>
+                <br />
             </div>
         }
         <div className="resium-wrapper">
