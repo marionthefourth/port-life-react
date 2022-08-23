@@ -25,7 +25,6 @@ function App() {
       <CookiesProvider>
           <Routes>
             <Route path="/" element={<Dashboard />}/>
-            <Route path="/demo" element={<Login/>}/>
             <Route path="/viz" element={<MetricViewer/>}/>
           </Routes>
       </CookiesProvider>
