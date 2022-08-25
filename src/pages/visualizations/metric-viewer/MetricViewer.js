@@ -141,7 +141,7 @@ export function MetricViewer() {
     }
 
     function returnToMap() {
-        navigate("/demo");
+        navigate("/");
     }
 
     function toggleYearFilter() {
